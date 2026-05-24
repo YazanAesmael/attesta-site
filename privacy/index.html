@@ -18,7 +18,7 @@
     </header>
 
     <h1 class="page-title">Privacy Policy</h1>
-    <p class="page-meta">v1.0 &middot; Last updated May 24, 2026</p>
+    <p class="page-meta">v1.1 &middot; Last updated May 24, 2026</p>
 
     <p>
       Attesta records what you ask it to, transcribes it, and gives you back
@@ -49,7 +49,7 @@
 
     <h2>What Attesta is</h2>
 
-    <p>A paid iOS, iPadOS, and macOS app that:</p>
+    <p>A paid iOS app, also available on Apple Silicon Macs via the iPhone-app-on-Mac compatibility layer. The app:</p>
     <ol>
       <li>Records audio when you tap the Record button on your device.</li>
       <li>Uploads the recording to our backend for transcription and structured-summary generation.</li>
@@ -67,15 +67,14 @@
     <h3>Account information</h3>
     <ul>
       <li>Your email address and display name from your sign-in provider (Apple or Google)</li>
-      <li>An Attesta-internal account ID</li>
-      <li>Your sign-in provider (Apple / Google)</li>
+      <li>Which sign-in provider you used (Apple or Google), so we know how to sign you back in next time</li>
     </ul>
 
     <h3>Recording data</h3>
     <ul>
       <li>The audio file of each recording you start</li>
       <li>The transcript produced from that audio</li>
-      <li>The structured summary generated from that transcript (key topics, action items, decisions, open questions, people mentioned)</li>
+      <li>The structured summary generated from that transcript (a short title, a summary paragraph, key topics, action items, decisions, open questions, and people mentioned)</li>
     </ul>
 
     <h3>Device information (technical, no extra permissions required)</h3>
@@ -174,8 +173,10 @@
     </table>
 
     <p>
-      If you downgrade from Pro to free, server-side audio files are deleted
-      within 30 days. The transcripts and insights on your device are unaffected.
+      If you downgrade from Pro to free, server-side audio files are scheduled
+      for deletion within 7 days (we set an expiry timestamp the moment Apple
+      tells us the subscription ended; a sweep job removes the audio once that
+      timestamp passes). The transcripts and insights remain on your device.
     </p>
 
     <h2>Your rights</h2>
@@ -204,12 +205,22 @@
       will close the account and delete the data.
     </p>
 
+    <p>
+      Our App Store age rating is 9+, which reflects content suitability under
+      Apple&rsquo;s rating system. The 13+ minimum here is the data-protection
+      threshold (COPPA in the US and equivalent regulations elsewhere): we
+      collect identifiable data tied to an account, which those laws restrict
+      below age 13.
+    </p>
+
     <h2>Changes</h2>
 
     <p>
-      We will update this page when our behavior changes. The
+      We update this page when our behavior changes. The
       &ldquo;Last updated&rdquo; date at the top is the source of truth.
-      Material changes will be announced in-app before they take effect.
+      You can bookmark this page; we don&rsquo;t currently have an in-app
+      notification for policy updates, so checking back here when something
+      seems different is the most reliable way to see what changed.
     </p>
 
     <h2>Contact</h2>
