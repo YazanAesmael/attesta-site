@@ -1,0 +1,343 @@
+/* attesta.cc — shared brand styles */
+/* Brand palette + voice / behaviour mirrors the app (see Lifelog
+   docs/PRODUCT_STRATEGY.md §4). Bump tokens here, the whole site follows. */
+
+:root {
+  /* Brand palette — constant across modes (identity, not surface) */
+  --brand-blue:   #4F8CFF;
+  --brand-purple: #A78BFA;
+  --brand-pink:   #F472B6;
+  --brand-gradient: linear-gradient(
+    90deg,
+    var(--brand-blue) 0%,
+    var(--brand-purple) 50%,
+    var(--brand-pink) 100%
+  );
+}
+
+/* Dark mode — default. Matches the app's dark surface tone. */
+:root {
+  --bg:             #0A0B14;
+  --surface:        #13141F;
+  --surface-strong: #1B1C2A;
+  --text:           #E8EAED;
+  --text-secondary: #9CA0AE;
+  --link:           #F8A8D0;
+  --border:         rgba(255, 255, 255, 0.08);
+}
+
+/* Light mode — override only when the OS asks. */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:             #FFFFFF;
+    --surface:        #F6F7FB;
+    --surface-strong: #ECEEF5;
+    --text:           #1A1B26;
+    --text-secondary: #5A5C68;
+    --link:           #7C3AED;
+    --border:         rgba(0, 0, 0, 0.08);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter",
+    system-ui, -webkit-system-font, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 96px;
+}
+
+/* ── Site header ──────────────────────────────────────────────────────── */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0 40px;
+  margin-bottom: 24px;
+}
+
+.site-header__logo {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.site-header__name {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: none;
+}
+
+/* ── Page header (legal pages) ────────────────────────────────────────── */
+
+.page-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+
+.page-meta {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0 0 48px;
+  letter-spacing: 0.01em;
+}
+
+/* ── Typography ───────────────────────────────────────────────────────── */
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 56px 0 16px;
+  line-height: 1.3;
+  scroll-margin-top: 24px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 32px 0 10px;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+
+p, ul, ol {
+  margin: 0 0 20px;
+}
+
+ul, ol {
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+li::marker {
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.15s ease;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 48px 0;
+}
+
+/* ── Tables (sub-processors, retention, pricing) ──────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 15px;
+}
+
+th, td {
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Brand-gradient accents ───────────────────────────────────────────── */
+
+.brand-gradient {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+/* ── Landing tagline ──────────────────────────────────────────────────── */
+
+.tagline {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin: 56px 0 24px;
+}
+
+.tagline span {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.lede {
+  font-size: 18px;
+  color: var(--text);
+  margin: 0 0 16px;
+  line-height: 1.55;
+}
+
+.platforms {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0 0 56px;
+  letter-spacing: 0.01em;
+}
+
+/* ── Pillar cards (load-bearing statements) ───────────────────────────── */
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 24px 0 64px;
+}
+
+@media (min-width: 720px) {
+  .pillar-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+.pillar {
+  position: relative;
+  padding: 24px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.pillar__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.pillar__body {
+  margin: 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* ── Section divider with brand sweep ─────────────────────────────────── */
+
+.brand-rule {
+  border: none;
+  height: 2px;
+  background: var(--brand-gradient);
+  border-radius: 2px;
+  margin: 56px 0;
+  opacity: 0.7;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────── */
+
+.site-footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+
+.site-footer a {
+  color: var(--text-secondary);
+  border-bottom-color: transparent;
+}
+
+.site-footer a:hover {
+  color: var(--link);
+  opacity: 1;
+}
+
+.site-footer__spacer {
+  flex: 1;
+}
+
+.site-footer__copy {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 540px) {
+  .container {
+    padding: 24px 18px 72px;
+  }
+  .page-title { font-size: 32px; }
+  .tagline    { font-size: 38px; }
+  .lede       { font-size: 17px; }
+  h2          { font-size: 20px; margin-top: 48px; }
+  table       { font-size: 14px; }
+  th, td      { padding: 12px 12px; }
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

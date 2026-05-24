@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Attesta</title>
+  <meta name="description" content="Attesta's privacy policy — exactly what data we handle, how, and on whose servers. Written from scratch against the actual code." />
+  <meta name="theme-color" content="#0A0B14" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <img src="/assets/logo.svg" alt="" class="site-header__logo" />
+      <a href="/" class="site-header__name">Attesta</a>
+    </header>
+
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="page-meta">v1.0 &middot; Last updated May 24, 2026</p>
+
+    <p>
+      Attesta records what you ask it to, transcribes it, and gives you back
+      a structured summary. This page describes exactly what data Attesta
+      handles, how, and on whose servers.
+    </p>
+
+    <p>
+      We wrote this from scratch against the actual code. It is not boilerplate.
+      If you find an inconsistency between this page and the app, write to
+      <a href="mailto:legal@attesta.cc">legal@attesta.cc</a>.
+    </p>
+
+    <hr class="brand-rule" />
+
+    <h2>The three load-bearing promises</h2>
+
+    <ol>
+      <li><strong>Audio capture, on your tap</strong> &mdash; never in the background.</li>
+      <li><strong>Audible signature tone</strong> &mdash; every recording begins with a clearly audible tone so anyone nearby knows.</li>
+      <li><strong>Private to your account</strong> &mdash; recordings stay tied to your account, are never shared, and are never used to train AI.</li>
+    </ol>
+
+    <p>
+      Every claim below either reinforces or constrains these three statements.
+      If we ever change them, this policy changes first.
+    </p>
+
+    <h2>What Attesta is</h2>
+
+    <p>A paid iOS, iPadOS, and macOS app that:</p>
+    <ol>
+      <li>Records audio when you tap the Record button on your device.</li>
+      <li>Uploads the recording to our backend for transcription and structured-summary generation.</li>
+      <li>Returns the transcript and summary to your device.</li>
+      <li>(Pro only) Keeps a server-side copy so the recording shows up on your other devices.</li>
+    </ol>
+
+    <p>
+      You sign in with Apple or Google. Sign-in is required to record because we
+      meter usage per account.
+    </p>
+
+    <h2>What we collect</h2>
+
+    <h3>Account information</h3>
+    <ul>
+      <li>Your email address and display name from your sign-in provider (Apple or Google)</li>
+      <li>An Attesta-internal account ID</li>
+      <li>Your sign-in provider (Apple / Google)</li>
+    </ul>
+
+    <h3>Recording data</h3>
+    <ul>
+      <li>The audio file of each recording you start</li>
+      <li>The transcript produced from that audio</li>
+      <li>The structured summary generated from that transcript (key topics, action items, decisions, open questions, people mentioned)</li>
+    </ul>
+
+    <h3>Device information (technical, no extra permissions required)</h3>
+    <ul>
+      <li>Device model (e.g. &ldquo;iPhone 16 Pro&rdquo;)</li>
+      <li>OS version</li>
+      <li>Network type (cellular / WiFi)</li>
+      <li>Free disk space &mdash; an indicator only, to know if a sync is feasible</li>
+      <li>Battery level &mdash; an indicator only, to back off uploads when battery is low</li>
+    </ul>
+
+    <p>
+      We collect this to support you and to mitigate abuse. It is never shared
+      outside the service providers listed below.
+    </p>
+
+    <h3>Purchase information</h3>
+    <ul>
+      <li>A receipt token from Apple&rsquo;s StoreKit when you subscribe or top up minutes</li>
+      <li>The number of minutes credited to your account</li>
+    </ul>
+
+    <p>We do not see your credit card. Apple handles all payments.</p>
+
+    <h2>What we don&rsquo;t collect</h2>
+
+    <ul>
+      <li>Your contacts</li>
+      <li>Your calendar</li>
+      <li>Your location</li>
+      <li>Your photos</li>
+      <li>Your microphone, except when you actively tap Record</li>
+      <li>Your screen</li>
+      <li>Anything we don&rsquo;t list above</li>
+    </ul>
+
+    <h2>What we never do</h2>
+
+    <ul>
+      <li><strong>Train AI models on your audio, transcripts, or insights.</strong> Not ours, not anyone else&rsquo;s.</li>
+      <li><strong>Sell your data.</strong> Not to advertisers, not to data brokers, not in aggregate.</li>
+      <li><strong>Show ads.</strong> Attesta is paid; ads are not part of the business model.</li>
+      <li><strong>Capture in the background.</strong> Recording only starts when you tap Record. There is no always-on, lifelog, or ambient mode.</li>
+      <li><strong>Listen between recordings.</strong> The microphone is engaged only during an active session.</li>
+    </ul>
+
+    <h2>Service providers (sub-processors)</h2>
+
+    <p>
+      Attesta runs on third-party infrastructure. Each provider sees only the
+      data it needs for its part of the work. None of them train on your data
+      under our contracts with them.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Provider</th><th>What they handle</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Apple Inc.</td><td>Sign in with Apple, StoreKit subscriptions and in-app purchases, App Store distribution</td></tr>
+        <tr><td>Google LLC</td><td>Sign in with Google</td></tr>
+        <tr><td>Supabase Inc.</td><td>Our backend &mdash; Postgres database, authentication, audio file storage</td></tr>
+        <tr><td>Deepgram Inc.</td><td>Cloud speech-to-text &mdash; your audio is sent here for transcription</td></tr>
+        <tr><td>Anthropic PBC</td><td>The language model that turns your transcript into the structured summary</td></tr>
+        <tr><td>Cloudflare Inc.</td><td>Domain (attesta.cc), DNS, email routing for our public addresses</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      If we add or change a provider, we update this list before the change
+      goes live in the app.
+    </p>
+
+    <h2>Where data lives</h2>
+
+    <ul>
+      <li><strong>Audio files (Pro only):</strong> Supabase Storage, US-East region</li>
+      <li><strong>Transcripts and structured summaries (Pro only):</strong> Supabase Postgres, US-East region</li>
+      <li><strong>Free recordings:</strong> nothing is retained server-side after transcription completes &mdash; only the transcript flows back to your device</li>
+      <li><strong>On your device:</strong> the local database holds every recording you&rsquo;ve made on that device, regardless of tier</li>
+    </ul>
+
+    <h2>Retention</h2>
+
+    <table>
+      <thead>
+        <tr><th>Data</th><th>How long we keep it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Audio files (Pro)</td><td>Until you delete the recording, downgrade from Pro, or delete your account</td></tr>
+        <tr><td>Transcripts and summaries (Pro)</td><td>Same as above</td></tr>
+        <tr><td>Account profile</td><td>Until you delete your account</td></tr>
+        <tr><td>Purchase receipts</td><td>As long as required for accounting (typically 7 years per tax law)</td></tr>
+        <tr><td>Free recordings (server side)</td><td>Not retained</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      If you downgrade from Pro to free, server-side audio files are deleted
+      within 30 days. The transcripts and insights on your device are unaffected.
+    </p>
+
+    <h2>Your rights</h2>
+
+    <p>You can:</p>
+    <ul>
+      <li><strong>Access</strong> every recording you&rsquo;ve made &mdash; they&rsquo;re already on your device in the app.</li>
+      <li><strong>Delete</strong> any recording from the app. If you were Pro at the time, the server copy is removed too.</li>
+      <li><strong>Delete your account</strong> from Account &rarr; Delete Account. Every server-side row associated with your account is cascade-deleted within 30 days. Your iOS subscription keeps renewing until you cancel it in Settings &rarr; Apple ID &rarr; Subscriptions.</li>
+    </ul>
+
+    <p>
+      If you&rsquo;re in the EU/UK (GDPR), California (CCPA), India (DPDP), or
+      anywhere with similar rights, the rights above apply to you. You can also
+      write to <a href="mailto:legal@attesta.cc">legal@attesta.cc</a> with any
+      specific request (data export, correction, restriction of processing). We
+      respond within 30 days.
+    </p>
+
+    <h2>Children</h2>
+
+    <p>
+      Attesta is not designed for users under 13. We do not knowingly collect
+      data from anyone under 13. If you believe a child is using Attesta,
+      write to <a href="mailto:legal@attesta.cc">legal@attesta.cc</a> and we
+      will close the account and delete the data.
+    </p>
+
+    <h2>Changes</h2>
+
+    <p>
+      We will update this page when our behavior changes. The
+      &ldquo;Last updated&rdquo; date at the top is the source of truth.
+      Material changes will be announced in-app before they take effect.
+    </p>
+
+    <h2>Contact</h2>
+
+    <p>
+      <a href="mailto:legal@attesta.cc">legal@attesta.cc</a>
+    </p>
+
+    <footer class="site-footer">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="mailto:legal@attesta.cc">legal@attesta.cc</a>
+      <span class="site-footer__spacer"></span>
+      <span class="site-footer__copy">&copy; 2026 Attesta</span>
+    </footer>
+  </div>
+</body>
+</html>

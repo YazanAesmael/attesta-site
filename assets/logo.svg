@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="Attesta">
+  <defs>
+    <linearGradient id="attesta-brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#4F8CFF"/>
+      <stop offset="50%"  stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#F472B6"/>
+    </linearGradient>
+  </defs>
+  <!-- Three voice bars, varying heights. Mirrors the app's VoiceBars mark. -->
+  <rect x="5"  y="11" width="4" height="10" rx="2" fill="url(#attesta-brand)"/>
+  <rect x="14" y="5"  width="4" height="22" rx="2" fill="url(#attesta-brand)"/>
+  <rect x="23" y="13" width="4" height="6"  rx="2" fill="url(#attesta-brand)"/>
+</svg>
