@@ -1,0 +1,12 @@
+# Cloudflare Pages — per-path response headers.
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# Apple App Site Association — must be served as application/json so iOS
+# accepts it. The file has no extension, so Cloudflare's default MIME
+# detection would serve it as application/octet-stream; this header
+# corrects that. The file itself lives at /.well-known/apple-app-site-association
+# and is fetched by iOS on app install to learn which paths the
+# attesta.cc Universal Link claims (see ../Attesta repo,
+# iosApp/iosApp/iosApp.entitlements).
+/.well-known/apple-app-site-association
+  Content-Type: application/json
