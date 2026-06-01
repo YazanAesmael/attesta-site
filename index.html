@@ -72,11 +72,14 @@
         </span>
       </span>
 
-      <form class="signup" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+      <form class="signup" id="signup" novalidate>
         <input type="email" name="email" placeholder="Email — get the launch & updates" required aria-label="Email address" />
+        <!-- Honeypot: hidden from people, bots tend to fill it. If set, we drop the submit. -->
+        <input type="text" name="company" class="signup__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <button type="submit">Notify me</button>
       </form>
     </div>
+    <p class="signup__msg" id="signup-msg" role="status" aria-live="polite"></p>
     <p class="platforms">On iPhone, iPad, and Mac.</p>
 
     <!-- See it in action — the App Store gallery. -->
@@ -136,5 +139,55 @@
       <span class="site-footer__copy">&copy; 2026 Attesta</span>
     </footer>
   </div>
+
+  <!-- Waitlist signup → Supabase. The anon key is PUBLIC by design: the
+       `waitlist` table is INSERT-only for anon (grant + RLS), so this key can
+       add a signup but can never read, change, or delete the list. -->
+  <script>
+    (function () {
+      var SUPABASE_URL = "https://zpgqtfrtrckyidbmgrah.supabase.co";
+      var ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwZ3F0ZnJ0cmNreWlkYm1ncmFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyNzkyNjIsImV4cCI6MjA5NDg1NTI2Mn0.eOxQHe0qHXNWzSa9A2QwhTRA9vCoDdJkYsf6apd_ftc";
+      var form = document.getElementById("signup");
+      var msg = document.getElementById("signup-msg");
+      if (!form) return;
+
+      function show(text, isError) {
+        msg.textContent = text;
+        msg.style.color = isError ? "var(--link)" : "var(--text-secondary)";
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (form.company.value) return;                 // honeypot tripped → ignore (bot)
+        var email = form.email.value.trim();
+        if (!email || email.indexOf("@") < 1) { show("Please enter a valid email.", true); return; }
+
+        var btn = form.querySelector("button");
+        btn.disabled = true;
+        show("…", false);
+
+        fetch(SUPABASE_URL + "/rest/v1/waitlist", {
+          method: "POST",
+          headers: {
+            "apikey": ANON,
+            "Authorization": "Bearer " + ANON,
+            "Content-Type": "application/json",
+            "Prefer": "return=minimal"
+          },
+          body: JSON.stringify({ email: email, source: "website" })
+        })
+        .then(function (r) {
+          if (r.ok || r.status === 409) {               // 409 = already signed up
+            form.reset();
+            show("You're on the list — we'll email you at launch. 🎉", false);
+          } else {
+            show("Something went wrong. Please try again.", true);
+          }
+        })
+        .catch(function () { show("Network error. Please try again.", true); })
+        .finally(function () { btn.disabled = false; });
+      });
+    })();
+  </script>
 </body>
 </html>
