@@ -556,8 +556,8 @@ tr:last-child td { border-bottom: none; }
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  min-height: 230px;
+  justify-content: flex-start;
+  min-height: 220px;
   padding: 34px 30px;
   border-radius: 22px;
   border: 1px solid var(--border);
