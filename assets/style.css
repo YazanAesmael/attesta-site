@@ -554,7 +554,11 @@ tr:last-child td { border-bottom: none; }
 
 .pillar {
   position: relative;
-  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 230px;
+  padding: 34px 30px;
   border-radius: 22px;
   border: 1px solid var(--border);
   background:
@@ -586,44 +590,22 @@ tr:last-child td { border-bottom: none; }
   .pillar:hover { box-shadow: 0 22px 44px rgba(20, 22, 40, 0.12); }
 }
 
-.pillar__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 13px;
-  margin: 0 0 18px;
-  border: 1px solid var(--border);
-  background: linear-gradient(
-    135deg,
-    rgba(79, 140, 255, 0.20),
-    rgba(167, 139, 250, 0.18) 55%,
-    rgba(244, 114, 182, 0.16)
-  );
-}
-
-/* Tint each icon a different brand stop for a little variety. */
-.pillar:nth-child(1) .pillar__icon { color: var(--brand-blue); }
-.pillar:nth-child(2) .pillar__icon { color: var(--brand-purple); }
-.pillar:nth-child(3) .pillar__icon { color: var(--brand-pink); }
-
-.pillar__icon svg { display: block; }
-
+/* Big, typography-led — the headline carries the idea (no icons). */
 .pillar__title {
   display: block;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   color: var(--text);
-  margin: 0 0 8px;
+  margin: 0 0 14px;
 }
 
 .pillar__body {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: clamp(16px, 1.7vw, 18px);
+  line-height: 1.55;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
