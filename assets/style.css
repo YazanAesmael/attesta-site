@@ -362,6 +362,10 @@ tr:last-child td {
   transform: translateY(-1px);
 }
 
+/* Pre-launch: non-clickable "Launching soon" state. */
+.btn-appstore--soon { cursor: default; opacity: 0.78; }
+.btn-appstore--soon:hover { transform: none; opacity: 0.78; }
+
 .btn-appstore__apple { flex: none; }
 
 .btn-appstore__copy {
