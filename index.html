@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Keyworded for discovery: people search the category, not the brand. -->
   <title>Attesta — AI Voice Recorder &amp; Transcription for iPhone</title>
   <meta name="description" content="Attesta is an AI voice recorder that transcribes your meetings, calls, and interviews and gives you back a searchable transcript with a summary, action items, and decisions. Audible consent tone. No model training. Honest per-minute pricing." />
   <link rel="canonical" href="https://attesta.cc/" />
@@ -12,23 +11,22 @@
   <meta name="theme-color" content="#0A0B14" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Attesta — AI Voice Recorder & Transcription" />
   <meta property="og:description" content="Record meetings, calls, and interviews — Attesta transcribes them and pulls out the summary, action items, and decisions. Audible consent tone. Your audio never trains anyone's model." />
   <meta property="og:url" content="https://attesta.cc/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
 
-  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Attesta — AI Voice Recorder & Transcription" />
   <meta name="twitter:description" content="AI transcription for meetings, calls & interviews. Summary, action items, decisions — from a single tap." />
   <meta name="twitter:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
 
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/style.css?v=7" />
+  <!-- Flag JS so scroll-reveal styles only hide content when we can reveal it. -->
+  <script>document.documentElement.className += " js";</script>
 
-  <!-- Structured data — helps rich results in search. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,105 +42,131 @@
   </script>
 </head>
 <body>
-  <div class="container">
-    <header class="site-header">
-      <img src="assets/logo.svg" alt="Attesta logo" class="site-header__logo" />
-      <a href="/" class="site-header__name">Attesta</a>
-    </header>
+  <header class="nav">
+    <a class="nav__brand" href="/">
+      <img src="assets/logo.svg" alt="Attesta logo" class="nav__logo" />
+      <span>Attesta</span>
+    </a>
+  </header>
 
-    <h1 class="tagline">AI transcripts <span>for every conversation.</span></h1>
+  <main>
+    <!-- ── Hero (full viewport) ──────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <h1 class="hero__title">AI transcripts<br /><span class="grad">for every conversation.</span></h1>
 
-    <p class="lede">
-      Attesta is an <strong>AI voice recorder</strong> that captures your meetings, calls,
-      and interviews, transcribes them in the cloud, and gives you back a searchable
-      transcript with a short summary, action items, decisions, and the people mentioned.
-    </p>
+        <p class="hero__lede">
+          Attesta is an <strong>AI voice recorder</strong> that captures your meetings, calls,
+          and interviews, transcribes them in the cloud, and hands you back a searchable
+          transcript with a summary, action items, decisions, and the people mentioned.
+        </p>
 
-    <!-- Primary conversion: App Store + launch list. -->
-    <div class="cta-row">
-      <!-- App is in App Store review — non-clickable until approved, then swap
-           this <span> back to <a href="https://apps.apple.com/app/id6771519623">. -->
-      <span class="btn-appstore btn-appstore--soon" aria-label="Coming soon to the App Store">
-        <svg class="btn-appstore__apple" viewBox="0 0 384 512" width="18" height="18" aria-hidden="true">
-          <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
-        </svg>
-        <span class="btn-appstore__copy">
-          <small>Launching soon on the</small>
-          <strong>App Store</strong>
-        </span>
-      </span>
+        <div class="hero__actions" id="get">
+          <span class="badge" aria-label="Coming soon to the App Store">
+            <svg class="badge__apple" viewBox="0 0 384 512" width="15" height="15" aria-hidden="true">
+              <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+            </svg>
+            Launching soon on the <strong>App&nbsp;Store</strong>
+          </span>
 
-      <form class="signup" id="signup" novalidate>
-        <input type="email" name="email" placeholder="Email — get the launch & updates" required aria-label="Email address" />
-        <!-- Honeypot: hidden from people, bots tend to fill it. If set, we drop the submit. -->
-        <input type="text" name="company" class="signup__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <button type="submit">Notify me</button>
-      </form>
-    </div>
-    <p class="signup__msg" id="signup-msg" role="status" aria-live="polite"></p>
-    <p class="platforms">On iPhone, iPad, and Mac.</p>
+          <form class="signup" id="signup" novalidate>
+            <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address" />
+            <input type="text" name="company" class="signup__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button type="submit">Get early access</button>
+          </form>
+          <p class="signup__msg" id="signup-msg" role="status" aria-live="polite"></p>
 
-    <!-- See it in action — the App Store gallery. -->
-    <section class="shots" aria-label="Screenshots">
-      <figure class="shot">
-        <img src="assets/screenshots/insights.png" loading="lazy" width="559" height="1210"
-             alt="Attesta insights screen — summary, key topics, action items with assignees, and decisions extracted from a meeting." />
-      </figure>
-      <figure class="shot">
-        <img src="assets/screenshots/recordings.png" loading="lazy" width="559" height="1210"
-             alt="Attesta recordings library — every conversation organized, searchable, and synced across devices." />
-      </figure>
-      <figure class="shot">
-        <img src="assets/screenshots/transcript.png" loading="lazy" width="559" height="1210"
-             alt="Attesta transcript screen — accurate, speaker-labelled transcript you can continue recording into anytime." />
-      </figure>
-      <figure class="shot">
-        <img src="assets/screenshots/capture.png" loading="lazy" width="559" height="1210"
-             alt="Attesta recording screen — catch every word with a single tap." />
-      </figure>
-      <figure class="shot">
-        <img src="assets/screenshots/styles.png" loading="lazy" width="559" height="1210"
-             alt="Attesta restyle insights — rewrite the summary as professional, concise, bullet-points, action-focused, and more." />
-      </figure>
-      <figure class="shot">
-        <img src="assets/screenshots/consent.png" loading="lazy" width="559" height="1210"
-             alt="Attesta consent screen — audio capture only on your tap, with an audible signature tone so anyone nearby knows." />
-      </figure>
+          <p class="hero__hint">Free to try &middot; iPhone, iPad &amp; Mac</p>
+        </div>
+      </div>
     </section>
 
-    <div class="pillar-grid">
-      <div class="pillar">
-        <span class="pillar__label">On your tap</span>
-        <p class="pillar__body">
-          Audio capture starts when you tap Record &mdash; never in the background.
-        </p>
+    <!-- ── Screenshot showcase ───────────────────────────────────────── -->
+    <section class="showcase">
+      <div class="wrap">
+        <h2 class="section-title reveal">A look inside</h2>
+        <p class="section-sub reveal">From a single tap to a structured, searchable record of what was said.</p>
+        <div class="shots">
+          <figure class="shot shot--side reveal-fade"><img src="assets/screenshots/recordings.png" loading="lazy" width="559" height="1210" alt="Attesta recordings library — every conversation organized, searchable, and synced across devices." /></figure>
+          <figure class="shot shot--focal reveal-fade"><img src="assets/screenshots/insights.png" loading="lazy" width="559" height="1210" alt="Attesta insights — summary, key topics, action items with assignees, and decisions from a meeting." /></figure>
+          <figure class="shot shot--side reveal-fade"><img src="assets/screenshots/transcript.png" loading="lazy" width="559" height="1210" alt="Attesta transcript — accurate, speaker-labelled, continue recording anytime." /></figure>
+        </div>
       </div>
-      <div class="pillar">
-        <span class="pillar__label">Audible tone</span>
-        <p class="pillar__body">
-          Every recording begins with a clearly audible signature tone so anyone nearby knows.
-        </p>
+    </section>
+
+    <!-- ── Values ────────────────────────────────────────────────────── -->
+    <section class="values">
+      <div class="wrap">
+        <div class="pillar-grid">
+          <div class="pillar reveal">
+            <span class="pillar__title">On your tap.</span>
+            <p class="pillar__body">Capture starts only when you tap Record &mdash; never in the background.</p>
+          </div>
+          <div class="pillar reveal">
+            <span class="pillar__title">Audible tone.</span>
+            <p class="pillar__body">Every recording opens with a clear signature tone, so anyone nearby knows.</p>
+          </div>
+          <div class="pillar reveal">
+            <span class="pillar__title">Yours alone.</span>
+            <p class="pillar__body">Recordings stay tied to your account. Never shared. Never used to train AI.</p>
+          </div>
+        </div>
       </div>
-      <div class="pillar">
-        <span class="pillar__label">Yours alone</span>
-        <p class="pillar__body">
-          Recordings stay tied to your account. Never shared. Never used to train AI.
-        </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <a class="footer__logo-row" href="/">
+          <img src="assets/logo.svg" alt="Attesta logo" class="footer__logo" />
+          <span>Attesta</span>
+        </a>
+        <p class="footer__tagline">AI transcripts for every conversation — recorded on your tap, with an audible tone, and never used to train AI.</p>
+        <span class="footer__soon">
+          <svg class="footer__apple" viewBox="0 0 384 512" width="13" height="13" aria-hidden="true">
+            <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+          </svg>
+          Launching soon on the App&nbsp;Store
+        </span>
       </div>
+
+      <nav class="footer__links" aria-label="Footer">
+        <span class="footer__col-title">Company</span>
+        <a href="privacy/index.html">Privacy Policy</a>
+        <a href="terms/index.html">Terms of Service</a>
+        <a href="mailto:hello@attesta.cc">Contact us</a>
+      </nav>
     </div>
 
-    <footer class="site-footer">
-      <a href="privacy/index.html">Privacy Policy</a>
-      <a href="terms/index.html">Terms of Service</a>
-      <a href="mailto:hello@attesta.cc">hello@attesta.cc</a>
-      <span class="site-footer__spacer"></span>
-      <span class="site-footer__copy">&copy; 2026 Attesta</span>
-    </footer>
-  </div>
+    <div class="wrap footer__bottom">
+      <span>&copy; 2026 Attesta. All rights reserved.</span>
+      <span class="footer__made">Made for people who'd rather not take notes.</span>
+    </div>
+  </footer>
 
-  <!-- Waitlist signup → Supabase. The anon key is PUBLIC by design: the
-       `waitlist` table is INSERT-only for anon (grant + RLS), so this key can
-       add a signup but can never read, change, or delete the list. -->
+  <!-- UI behaviour: reveal sections as they scroll into view. -->
+  <script>
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var hidden = document.querySelectorAll(".reveal, .reveal-fade");
+      if (reduce || !("IntersectionObserver" in window)) {
+        hidden.forEach(function (el) { el.classList.add("in"); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+        hidden.forEach(function (el) { io.observe(el); });
+      }
+    })();
+  </script>
+
+  <!-- Waitlist → Supabase. The anon key is public by design: the `waitlist`
+       table is INSERT-only for anon (grant + RLS), so this key can add a
+       signup but can never read, change, or delete the list. -->
   <script>
     (function () {
       var SUPABASE_URL = "https://zpgqtfrtrckyidbmgrah.supabase.co";
@@ -153,7 +177,7 @@
 
       function show(text, isError) {
         msg.textContent = text;
-        msg.style.color = isError ? "var(--link)" : "var(--text-secondary)";
+        msg.dataset.state = isError ? "error" : "ok";
       }
 
       form.addEventListener("submit", function (e) {
