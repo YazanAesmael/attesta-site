@@ -23,7 +23,9 @@
   <meta name="twitter:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
 
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
-  <link rel="stylesheet" href="assets/style.css?v=3" />
+  <link rel="stylesheet" href="assets/style.css?v=4" />
+  <!-- Flag JS so scroll-reveal styles only hide content when we can reveal it. -->
+  <script>document.documentElement.className += " js";</script>
 
   <script type="application/ld+json">
   {
@@ -84,15 +86,12 @@
     <!-- ── Screenshot showcase ───────────────────────────────────────── -->
     <section class="showcase">
       <div class="wrap">
-        <h2 class="section-title">A look inside</h2>
-        <p class="section-sub">From a single tap to a structured, searchable record of what was said.</p>
+        <h2 class="section-title reveal">A look inside</h2>
+        <p class="section-sub reveal">From a single tap to a structured, searchable record of what was said.</p>
         <div class="shots">
-          <figure class="shot"><img src="assets/screenshots/insights.png" loading="lazy" width="559" height="1210" alt="Attesta insights — summary, key topics, action items with assignees, and decisions from a meeting." /></figure>
-          <figure class="shot"><img src="assets/screenshots/recordings.png" loading="lazy" width="559" height="1210" alt="Attesta recordings library — every conversation organized, searchable, and synced across devices." /></figure>
-          <figure class="shot"><img src="assets/screenshots/transcript.png" loading="lazy" width="559" height="1210" alt="Attesta transcript — accurate, speaker-labelled, continue recording anytime." /></figure>
-          <figure class="shot"><img src="assets/screenshots/capture.png" loading="lazy" width="559" height="1210" alt="Attesta recording screen — catch every word with a single tap." /></figure>
-          <figure class="shot"><img src="assets/screenshots/styles.png" loading="lazy" width="559" height="1210" alt="Attesta restyle — rewrite the summary as professional, concise, bullet-points, action-focused, and more." /></figure>
-          <figure class="shot"><img src="assets/screenshots/consent.png" loading="lazy" width="559" height="1210" alt="Attesta consent — capture only on your tap, with an audible signature tone so anyone nearby knows." /></figure>
+          <figure class="shot shot--side reveal-fade"><img src="assets/screenshots/recordings.png" loading="lazy" width="559" height="1210" alt="Attesta recordings library — every conversation organized, searchable, and synced across devices." /></figure>
+          <figure class="shot shot--focal reveal-fade"><img src="assets/screenshots/insights.png" loading="lazy" width="559" height="1210" alt="Attesta insights — summary, key topics, action items with assignees, and decisions from a meeting." /></figure>
+          <figure class="shot shot--side reveal-fade"><img src="assets/screenshots/transcript.png" loading="lazy" width="559" height="1210" alt="Attesta transcript — accurate, speaker-labelled, continue recording anytime." /></figure>
         </div>
       </div>
     </section>
@@ -101,15 +100,15 @@
     <section class="values">
       <div class="wrap">
         <div class="pillar-grid">
-          <div class="pillar">
+          <div class="pillar reveal">
             <span class="pillar__label">On your tap</span>
             <p class="pillar__body">Audio capture starts when you tap Record &mdash; never in the background.</p>
           </div>
-          <div class="pillar">
+          <div class="pillar reveal">
             <span class="pillar__label">Audible tone</span>
             <p class="pillar__body">Every recording begins with a clearly audible signature tone so anyone nearby knows.</p>
           </div>
-          <div class="pillar">
+          <div class="pillar reveal">
             <span class="pillar__label">Yours alone</span>
             <p class="pillar__body">Recordings stay tied to your account. Never shared. Never used to train AI.</p>
           </div>
@@ -127,6 +126,45 @@
       <span class="site-footer__copy">&copy; 2026 Attesta</span>
     </div>
   </footer>
+
+  <!-- UI behaviours: scroll-reveal on enter + a no-jump "Get early access". -->
+  <script>
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // Reveal-on-scroll. With reduced motion (or no IntersectionObserver),
+      // just show everything immediately.
+      var hidden = document.querySelectorAll(".reveal, .reveal-fade");
+      if (reduce || !("IntersectionObserver" in window)) {
+        hidden.forEach(function (el) { el.classList.add("in"); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+        hidden.forEach(function (el) { io.observe(el); });
+      }
+
+      // "Get early access" → focus the email field. If it's already on screen
+      // (the usual case at the top of the page), focus WITHOUT scrolling so the
+      // page doesn't jump; only scroll it into view when it's actually off-screen.
+      var cta = document.querySelector(".nav__cta");
+      var email = document.querySelector('#signup input[type="email"]');
+      if (cta && email) {
+        cta.addEventListener("click", function (e) {
+          e.preventDefault();
+          var r = email.getBoundingClientRect();
+          var vh = window.innerHeight || document.documentElement.clientHeight;
+          var inView = r.top >= 0 && r.bottom <= vh;
+          if (!inView) {
+            email.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+          }
+          try { email.focus({ preventScroll: true }); } catch (_) { email.focus(); }
+        });
+      }
+    })();
+  </script>
 
   <!-- Waitlist → Supabase. The anon key is public by design: the `waitlist`
        table is INSERT-only for anon (grant + RLS), so this key can add a
