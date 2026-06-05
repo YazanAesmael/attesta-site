@@ -23,7 +23,7 @@
   <meta name="twitter:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
 
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
-  <link rel="stylesheet" href="assets/style.css?v=7" />
+  <link rel="stylesheet" href="assets/style.css?v=8" />
   <!-- Flag JS so scroll-reveal styles only hide content when we can reveal it. -->
   <script>document.documentElement.className += " js";</script>
 
@@ -63,19 +63,15 @@
         </p>
 
         <div class="hero__actions" id="get">
-          <span class="badge" aria-label="Coming soon to the App Store">
-            <svg class="badge__apple" viewBox="0 0 384 512" width="15" height="15" aria-hidden="true">
+          <a class="appstore-btn" href="https://apps.apple.com/us/app/attesta/id6771519623" aria-label="Download Attesta on the App Store">
+            <svg class="appstore-btn__apple" viewBox="0 0 384 512" width="28" height="28" aria-hidden="true">
               <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
             </svg>
-            Launching soon on the <strong>App&nbsp;Store</strong>
-          </span>
-
-          <form class="signup" id="signup" novalidate>
-            <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address" />
-            <input type="text" name="company" class="signup__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <button type="submit">Get early access</button>
-          </form>
-          <p class="signup__msg" id="signup-msg" role="status" aria-live="polite"></p>
+            <span class="appstore-btn__text">
+              <small>Download on the</small>
+              <strong>App&nbsp;Store</strong>
+            </span>
+          </a>
 
           <p class="hero__hint">Free to try &middot; iPhone, iPad &amp; Mac</p>
         </div>
@@ -124,12 +120,12 @@
           <span>Attesta</span>
         </a>
         <p class="footer__tagline">AI transcripts for every conversation — recorded on your tap, with an audible tone, and never used to train AI.</p>
-        <span class="footer__soon">
+        <a class="footer__soon" href="https://apps.apple.com/us/app/attesta/id6771519623">
           <svg class="footer__apple" viewBox="0 0 384 512" width="13" height="13" aria-hidden="true">
             <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
           </svg>
-          Launching soon on the App&nbsp;Store
-        </span>
+          Download on the App&nbsp;Store
+        </a>
       </div>
 
       <nav class="footer__links" aria-label="Footer">
@@ -164,54 +160,5 @@
     })();
   </script>
 
-  <!-- Waitlist → Supabase. The anon key is public by design: the `waitlist`
-       table is INSERT-only for anon (grant + RLS), so this key can add a
-       signup but can never read, change, or delete the list. -->
-  <script>
-    (function () {
-      var SUPABASE_URL = "https://zpgqtfrtrckyidbmgrah.supabase.co";
-      var ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwZ3F0ZnJ0cmNreWlkYm1ncmFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyNzkyNjIsImV4cCI6MjA5NDg1NTI2Mn0.eOxQHe0qHXNWzSa9A2QwhTRA9vCoDdJkYsf6apd_ftc";
-      var form = document.getElementById("signup");
-      var msg = document.getElementById("signup-msg");
-      if (!form) return;
-
-      function show(text, isError) {
-        msg.textContent = text;
-        msg.dataset.state = isError ? "error" : "ok";
-      }
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (form.company.value) return;                 // honeypot tripped → ignore (bot)
-        var email = form.email.value.trim();
-        if (!email || email.indexOf("@") < 1) { show("Please enter a valid email.", true); return; }
-
-        var btn = form.querySelector("button");
-        btn.disabled = true;
-        show("…", false);
-
-        fetch(SUPABASE_URL + "/rest/v1/waitlist", {
-          method: "POST",
-          headers: {
-            "apikey": ANON,
-            "Authorization": "Bearer " + ANON,
-            "Content-Type": "application/json",
-            "Prefer": "return=minimal"
-          },
-          body: JSON.stringify({ email: email, source: "website" })
-        })
-        .then(function (r) {
-          if (r.ok || r.status === 409) {               // 409 = already signed up
-            form.reset();
-            show("You're on the list — we'll email you at launch. 🎉", false);
-          } else {
-            show("Something went wrong. Please try again.", true);
-          }
-        })
-        .catch(function () { show("Network error. Please try again.", true); })
-        .finally(function () { btn.disabled = false; });
-      });
-    })();
-  </script>
 </body>
 </html>
