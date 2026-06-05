@@ -357,97 +357,54 @@ tr:last-child td { border-bottom: none; }
   animation: rise 0.7s 0.30s both cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-/* ── "Launching soon" Apple badge — single line, vertically centered ──── */
+/* ── App Store download badge — the primary CTA (app is live) ─────────── */
 
-.badge {
+.appstore-btn {
   display: inline-flex;
-  align-items: center;          /* centers the apple glyph with the text */
-  gap: 9px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 8px 16px;
-  font-size: 13.5px;
-  color: var(--text-secondary);
-  white-space: nowrap;
+  align-items: center;
+  gap: 13px;
+  background: #000;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  padding: 13px 28px;
+  text-decoration: none;
+  box-shadow: 0 10px 34px -14px rgba(0, 0, 0, 0.7);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.badge strong { color: var(--text); font-weight: 600; }
+.appstore-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -14px rgba(0, 0, 0, 0.8);
+}
 
-.badge__apple {
+.appstore-btn__apple {
   display: block;               /* kill inline-baseline gap → true vertical centering */
   flex: none;
-  color: var(--text);
+  color: #fff;
   position: relative;
   top: -1px;                    /* optical nudge: apple mark sits high in its box */
 }
 
-/* ── Waitlist form — prominent, clearly a field + button ───────────────── */
-
-.signup {
+.appstore-btn__text {
   display: flex;
-  gap: 10px;
-  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.05;
+  text-align: left;
 }
 
-.signup input[type="email"] {
-  flex: 1;
-  min-width: 0;
-  background: var(--surface-strong);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 15px 18px;
-  font-size: 16px;
-  font-family: inherit;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+.appstore-btn__text small {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  opacity: 0.82;
 }
 
-.signup input[type="email"]::placeholder { color: var(--text-secondary); }
-
-.signup input[type="email"]:focus {
-  outline: none;
-  border-color: var(--brand-purple);
-  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.22);
-}
-
-.signup button {
-  flex: none;
-  background: var(--brand-gradient);
-  color: #fff;
-  border: none;
-  border-radius: 14px;
-  padding: 15px 22px;
-  font-size: 16px;
+.appstore-btn__text strong {
+  font-size: 21px;
   font-weight: 600;
-  cursor: pointer;
-  font-family: inherit;
-  white-space: nowrap;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  letter-spacing: 0.01em;
 }
-
-.signup button:hover { opacity: 0.92; transform: translateY(-1px); }
-.signup button:disabled { opacity: 0.6; cursor: default; transform: none; }
-
-/* Honeypot — off-screen, never seen or tabbed to by people. */
-.signup__hp {
-  position: absolute !important;
-  left: -9999px !important;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.signup__msg {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin: 2px 0 0;
-  min-height: 1.2em;
-}
-
-.signup__msg[data-state="error"] { color: var(--brand-pink); }
-.signup__msg[data-state="ok"]    { color: var(--text); }
 
 .hero__hint {
   font-size: 13px;
@@ -688,7 +645,11 @@ tr:last-child td { border-bottom: none; }
   border-radius: 999px;
   padding: 6px 13px;
   white-space: nowrap;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
+
+.footer__soon:hover { color: var(--text); border-color: var(--text-secondary); }
 
 .footer__apple {
   display: block;
@@ -741,12 +702,6 @@ tr:last-child td { border-bottom: none; }
 /* ─────────────────────────────────────────────────────────────────────────
    RESPONSIVE  (small screens)
    ───────────────────────────────────────────────────────────────────────── */
-
-@media (max-width: 600px) {
-  .signup { flex-direction: column; }
-  .signup button { width: 100%; }
-  .badge { white-space: normal; text-align: left; }
-}
 
 @media (max-width: 540px) {
   .container { padding: 24px 18px 72px; }
