@@ -5,28 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Attesta — AI Voice Recorder &amp; Transcription for iPhone</title>
-  <meta name="description" content="Attesta is an AI voice recorder that transcribes your meetings, calls, and interviews and gives you back a searchable transcript with a summary, action items, and decisions. Audible consent tone. No model training. Honest per-minute pricing." />
+  <meta name="description" content="Attesta records your in-person conversations with an audible consent tone, then hands back a speaker-labeled transcript with the summary, action items, and decisions. Never trains a model. Honest per-minute pricing." />
   <link rel="canonical" href="https://attesta.cc/" />
 
   <meta name="theme-color" content="#0A0B14" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
 
-  <meta property="og:title" content="Attesta — AI Voice Recorder & Transcription" />
-  <meta property="og:description" content="Record meetings, calls, and interviews — Attesta transcribes them and pulls out the summary, action items, and decisions. Audible consent tone. Your audio never trains anyone's model." />
+  <meta property="og:title" content="Attesta — The recorder that announces itself" />
+  <meta property="og:description" content="Record in-person conversations with an audible consent tone. Get a speaker-labeled transcript plus summary, action items, and decisions. Never trains a model." />
   <meta property="og:url" content="https://attesta.cc/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
-
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Attesta — AI Voice Recorder & Transcription" />
-  <meta name="twitter:description" content="AI transcription for meetings, calls & interviews. Summary, action items, decisions — from a single tap." />
+  <meta name="twitter:title" content="Attesta — The recorder that announces itself" />
+  <meta name="twitter:description" content="Consent tone on every recording. Transcript, summary, action items, decisions. Your words never train a model." />
   <meta name="twitter:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
 
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png" />
-  <link rel="stylesheet" href="assets/style.css?v=8" />
-  <!-- Flag JS so scroll-reveal styles only hide content when we can reveal it. -->
+  <link rel="stylesheet" href="assets/style.css?v=9" />
   <script>document.documentElement.className += " js";</script>
 
   <script type="application/ld+json">
@@ -36,82 +34,270 @@
     "name": "Attesta",
     "applicationCategory": "ProductivityApplication",
     "operatingSystem": "iOS, iPadOS, macOS",
-    "description": "AI voice recorder and transcription app. Records meetings, calls, and interviews, then returns a searchable transcript with a summary, action items, and decisions.",
+    "description": "Records in-person conversations with an audible consent tone, then returns a speaker-labeled transcript with a summary, action items, and decisions. Never trains a model.",
     "url": "https://attesta.cc/",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "publisher": { "@type": "Organization", "name": "Attesta", "url": "https://attesta.cc/" }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is it legal to record a conversation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Recording laws vary by location. Some require everyone's consent, some only one person's. Attesta's audible tone announces every recording, which keeps you on the clean side of two-party-consent rules. You are responsible for following the law where you are." } },
+      { "@type": "Question", "name": "Where do my recordings go, and do you train on them?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Recordings are transcribed in the cloud and tied to your account. They are never used to train any model and never sold. You can export or delete them anytime." } },
+      { "@type": "Question", "name": "Do I need to invite a bot or set up a meeting link?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Attesta records the conversation in the room from your iPhone. Nothing joins your calls and no bot appears." } },
+      { "@type": "Question", "name": "Is it really free to start?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Your first 5 minutes are free, no card required. After that it is $9.99 per month, or $1.99 per 30 minutes that never expire." } },
+      { "@type": "Question", "name": "Which devices does it run on?",
+        "acceptedAnswer": { "@type": "Answer", "text": "iPhone, iPad, and Mac. One purchase covers all three." } }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header class="nav">
-    <a class="nav__brand" href="/">
-      <img src="assets/logo.svg" alt="Attesta logo" class="nav__logo" />
-      <span>Attesta</span>
-    </a>
+
+  <!-- ── Nav ─────────────────────────────────────────────────────────── -->
+  <header class="lp-nav">
+    <div class="wrap lp-nav__inner">
+      <a class="lp-nav__brand" href="/">
+        <img src="assets/logo.svg" alt="Attesta" class="lp-nav__logo" />
+        <span>Attesta</span>
+      </a>
+      <nav class="lp-nav__links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#why">Why Attesta</a>
+        <a href="#pricing">Pricing</a>
+        <a href="guides/index.html">Guides</a>
+      </nav>
+      <a class="lp-nav__cta" href="https://apps.apple.com/us/app/attesta/id6771519623">Get the app</a>
+    </div>
   </header>
 
   <main>
-    <!-- ── Hero (full viewport) ──────────────────────────────────────── -->
-    <section class="hero">
-      <div class="hero__glow" aria-hidden="true"></div>
-      <div class="hero__inner">
-        <h1 class="hero__title">AI transcripts<br /><span class="grad">for every conversation.</span></h1>
 
-        <p class="hero__lede">
-          Attesta is an <strong>AI voice recorder</strong> that captures your meetings, calls,
-          and interviews, transcribes them in the cloud, and hands you back a searchable
-          transcript with a summary, action items, decisions, and the people mentioned.
-        </p>
-
-        <div class="hero__actions" id="get">
-          <a class="appstore-btn" href="https://apps.apple.com/us/app/attesta/id6771519623" aria-label="Download Attesta on the App Store">
-            <svg class="appstore-btn__apple" viewBox="0 0 384 512" width="28" height="28" aria-hidden="true">
-              <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
-            </svg>
-            <span class="appstore-btn__text">
-              <small>Download on the</small>
-              <strong>App&nbsp;Store</strong>
-            </span>
-          </a>
-
-          <p class="hero__hint">Free to try &middot; iPhone, iPad &amp; Mac</p>
+    <!-- ── Hero ──────────────────────────────────────────────────────── -->
+    <section class="lp-hero">
+      <div class="lp-hero__glow" aria-hidden="true"></div>
+      <div class="wrap lp-hero__inner">
+        <div class="lp-hero__copy">
+          <span class="lp-eyebrow">Catch every word.</span>
+          <h1 class="lp-hero__title">The recorder that<br /><span class="grad">announces itself.</span></h1>
+          <p class="lp-hero__lede">
+            Tap once to record an in-person conversation. Attesta sounds an audible tone so
+            everyone in the room knows, then hands back a speaker-labeled transcript with the
+            summary, action items, and decisions. Your recordings stay yours. They never train a model.
+          </p>
+          <div class="lp-hero__cta">
+            <a class="appstore-btn" href="https://apps.apple.com/us/app/attesta/id6771519623" aria-label="Download Attesta on the App Store">
+              <svg class="appstore-btn__apple" viewBox="0 0 384 512" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+              <span class="appstore-btn__text"><small>Download on the</small><strong>App&nbsp;Store</strong></span>
+            </a>
+            <p class="lp-hero__micro">Five minutes free. Then $9.99/mo, or $1.99 per 30 minutes that never expire. &middot; iPhone, iPad &amp; Mac.</p>
+          </div>
+        </div>
+        <div class="lp-hero__visual reveal-fade">
+          <div class="lp-phone"><img src="assets/screenshots/insights.png" width="559" height="1210" alt="Attesta insights — summary, key topics, action items with assignees, and decisions from a meeting." /></div>
         </div>
       </div>
     </section>
 
-    <!-- ── Screenshot showcase ───────────────────────────────────────── -->
+    <!-- ── Trust strip ───────────────────────────────────────────────── -->
+    <section class="lp-trust">
+      <div class="wrap">
+        <h2 class="lp-trust__title reveal">Built to be recorded <em>with</em>, not <em>on</em>.</h2>
+        <div class="lp-trust__grid">
+          <div class="lp-card reveal">
+            <span class="lp-card__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2.7" y="9" width="2.6" height="6" rx="1.3"/><rect x="7.7" y="5" width="2.6" height="14" rx="1.3"/><rect x="12.7" y="7.5" width="2.6" height="9" rx="1.3"/><rect x="17.7" y="10.5" width="2.6" height="3" rx="1.3"/></svg></span>
+            <h3>It announces itself</h3>
+            <p>Every recording opens with a clear, audible tone. No silent or background capture. Recording only starts when you tap.</p>
+          </div>
+          <div class="lp-card reveal">
+            <span class="lp-card__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.4 3 7.4 7 8.8 4-1.4 7-4.4 7-8.8V6l-7-3Z"/><path d="m9 11.5 2 2 4-4"/></svg></span>
+            <h3>It never trains a model</h3>
+            <p>Your audio and transcripts are never used to train anyone's model, and never sold. Full stop.</p>
+          </div>
+          <div class="lp-card reveal">
+            <span class="lp-card__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="5"/><path d="m11.5 11.5 8-8"/><path d="m17.5 5.5 2.5 2.5"/><path d="m14.5 8.5 2.5 2.5"/></svg></span>
+            <h3>It stays yours</h3>
+            <p>Recordings live in your account. Export them or delete them whenever you want.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How it works ──────────────────────────────────────────────── -->
+    <section class="lp-section" id="how">
+      <div class="wrap">
+        <h2 class="lp-section__title reveal">From the table to a transcript, in three steps.</h2>
+        <div class="lp-steps">
+          <div class="lp-step reveal">
+            <span class="lp-step__num">1</span>
+            <h3>Tap record</h3>
+            <p>No bot to invite, no link to paste. Just your phone on the table. Recording starts on your tap, never before.</p>
+          </div>
+          <div class="lp-step reveal">
+            <span class="lp-step__num">2</span>
+            <h3>A tone sounds</h3>
+            <p>Attesta plays its signature tone so everyone present knows recording has begun. Consent you can hear.</p>
+          </div>
+          <div class="lp-step reveal">
+            <span class="lp-step__num">3</span>
+            <h3>Get the takeaways</h3>
+            <p>Minutes later: a speaker-labeled transcript, plus the summary, action items, decisions, and people mentioned. Searchable, on every device.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Showcase ──────────────────────────────────────────────────── -->
     <section class="showcase">
       <div class="wrap">
-        <h2 class="section-title reveal">A look inside</h2>
-        <p class="section-sub reveal">From a single tap to a structured, searchable record of what was said.</p>
+        <h2 class="section-title reveal">See the record, not just the recording.</h2>
+        <p class="section-sub reveal">Every conversation comes back organized, searchable, and turned into something you can act on.</p>
         <div class="shots">
           <figure class="shot shot--side reveal-fade"><img src="assets/screenshots/recordings.png" loading="lazy" width="559" height="1210" alt="Attesta recordings library — every conversation organized, searchable, and synced across devices." /></figure>
-          <figure class="shot shot--focal reveal-fade"><img src="assets/screenshots/insights.png" loading="lazy" width="559" height="1210" alt="Attesta insights — summary, key topics, action items with assignees, and decisions from a meeting." /></figure>
-          <figure class="shot shot--side reveal-fade"><img src="assets/screenshots/transcript.png" loading="lazy" width="559" height="1210" alt="Attesta transcript — accurate, speaker-labelled, continue recording anytime." /></figure>
+          <figure class="shot shot--focal reveal-fade"><img src="assets/screenshots/insights.png" loading="lazy" width="559" height="1210" alt="Attesta insights — summary, key topics, action items with assignees, and decisions." /></figure>
+          <figure class="shot shot--side reveal-fade"><img src="assets/screenshots/transcript.png" loading="lazy" width="559" height="1210" alt="Attesta transcript — accurate, speaker-labeled, continue recording anytime." /></figure>
         </div>
       </div>
     </section>
 
-    <!-- ── Values ────────────────────────────────────────────────────── -->
-    <section class="values">
+    <!-- ── Why Attesta ───────────────────────────────────────────────── -->
+    <section class="lp-section" id="why">
       <div class="wrap">
-        <div class="pillar-grid">
-          <div class="pillar reveal">
-            <span class="pillar__title">On your tap.</span>
-            <p class="pillar__body">Capture starts only when you tap Record &mdash; never in the background.</p>
+        <h2 class="lp-section__title reveal">Five things other recorders won't do.</h2>
+        <div class="lp-why__grid">
+          <div class="lp-card reveal">
+            <h3>Recording you can hear begin</h3>
+            <p>An audible tone announces every session. Clean and clear in two-party-consent states, and just plain honest everywhere else.</p>
           </div>
-          <div class="pillar reveal">
-            <span class="pillar__title">Audible tone.</span>
-            <p class="pillar__body">Every recording opens with a clear signature tone, so anyone nearby knows.</p>
+          <div class="lp-card reveal">
+            <h3>Your words don't feed a model</h3>
+            <p>Audio and transcripts are never used for training and never sold. We make money from minutes, not from your conversations.</p>
           </div>
-          <div class="pillar reveal">
-            <span class="pillar__title">Yours alone.</span>
-            <p class="pillar__body">Recordings stay tied to your account. Never shared. Never used to train AI.</p>
+          <div class="lp-card reveal">
+            <h3>Pay for minutes, not seats</h3>
+            <p>Transparent per-minute pricing. No per-user license, no annual contract, no "contact sales."</p>
           </div>
+          <div class="lp-card reveal">
+            <h3>No bot in the meeting</h3>
+            <p>Built for the conversation in the room, across the table, not across a video call. Nothing joins uninvited.</p>
+          </div>
+          <div class="lp-card reveal">
+            <h3>Answers, not a wall of text</h3>
+            <p>Every recording comes back structured: summary, action items, decisions, people. Find what was said without re-reading it.</p>
+          </div>
+        </div>
+        <div class="lp-center reveal">
+          <a class="appstore-btn" href="https://apps.apple.com/us/app/attesta/id6771519623" aria-label="Download Attesta on the App Store">
+            <svg class="appstore-btn__apple" viewBox="0 0 384 512" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+            <span class="appstore-btn__text"><small>Download on the</small><strong>App&nbsp;Store</strong></span>
+          </a>
         </div>
       </div>
     </section>
+
+    <!-- ── Use cases ─────────────────────────────────────────────────── -->
+    <section class="lp-section">
+      <div class="wrap">
+        <h2 class="lp-section__title reveal">For the conversations you can't afford to misquote.</h2>
+        <div class="lp-uses">
+          <a class="lp-use reveal" href="how-to-transcribe-an-interview/index.html">
+            <h3>Interviews</h3>
+            <p>Stay present, quote accurately, find the line later.</p>
+            <span class="lp-use__link">How to transcribe an interview &rarr;</span>
+          </a>
+          <a class="lp-use reveal" href="record-lectures/index.html">
+            <h3>Lectures</h3>
+            <p>Catch every term while you listen, not while you scribble.</p>
+            <span class="lp-use__link">Record lectures &rarr;</span>
+          </a>
+          <a class="lp-use reveal" href="record-a-meeting-on-iphone/index.html">
+            <h3>Meetings</h3>
+            <p>Walk out with the decisions and who owns what.</p>
+            <span class="lp-use__link">Record a meeting on iPhone &rarr;</span>
+          </a>
+          <a class="lp-use reveal" href="transcribe-a-podcast/index.html">
+            <h3>Podcasts</h3>
+            <p>A speaker-labeled transcript for show notes and clips.</p>
+            <span class="lp-use__link">Transcribe a podcast &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Pricing teaser ────────────────────────────────────────────── -->
+    <section class="lp-section" id="pricing">
+      <div class="wrap">
+        <h2 class="lp-section__title reveal">Honest pricing. Pay for what you record.</h2>
+        <div class="lp-price">
+          <div class="lp-price__tier reveal">
+            <span class="lp-price__name">Free trial</span>
+            <span class="lp-price__amt">$0</span>
+            <p>Your first 5 minutes are on us. No card to start.</p>
+          </div>
+          <div class="lp-price__tier lp-price__tier--feature reveal">
+            <span class="lp-price__tag">Most popular</span>
+            <span class="lp-price__name">Pro</span>
+            <span class="lp-price__amt">$9.99<small>/mo</small></span>
+            <p>300 minutes a month. Or $79.99/yr. Cancel anytime.</p>
+          </div>
+          <div class="lp-price__tier reveal">
+            <span class="lp-price__name">Top-up minutes</span>
+            <span class="lp-price__amt">$1.99<small>/30 min</small></span>
+            <p>Buy minutes once, use them whenever. They never expire.</p>
+          </div>
+        </div>
+        <p class="lp-price__note reveal">No per-seat fees. No contracts. <a href="pricing/index.html">See full pricing &rarr;</a></p>
+      </div>
+    </section>
+
+    <!-- ── FAQ ───────────────────────────────────────────────────────── -->
+    <section class="lp-section lp-faq">
+      <div class="wrap lp-faq__wrap">
+        <h2 class="lp-section__title reveal">Questions worth asking before you record someone.</h2>
+        <details class="lp-faq__item reveal" open>
+          <summary>Is it legal to record a conversation?</summary>
+          <p>Recording laws vary by place. Some require everyone's consent, some only one person's. Attesta's audible tone announces every recording, which keeps you on the clean side of two-party-consent rules and is simply the honest thing to do. You're responsible for following the law where you are.</p>
+        </details>
+        <details class="lp-faq__item reveal">
+          <summary>Where do my recordings go, and do you train on them?</summary>
+          <p>Recordings are transcribed in the cloud and tied to your account. They are never used to train any model and never sold. You can export or delete them anytime.</p>
+        </details>
+        <details class="lp-faq__item reveal">
+          <summary>Do I need to invite a bot or set up a meeting link?</summary>
+          <p>No. Attesta records the conversation in the room from your iPhone. Nothing joins your calls and no one gets a notification that a bot has appeared.</p>
+        </details>
+        <details class="lp-faq__item reveal">
+          <summary>Is it really free to start?</summary>
+          <p>Your first 5 minutes are free, no card required. After that it's $9.99/mo, or $1.99 per 30 minutes that never expire.</p>
+        </details>
+        <details class="lp-faq__item reveal">
+          <summary>Which devices does it run on?</summary>
+          <p>iPhone, iPad, and Mac. One purchase covers all three.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ── Final CTA ─────────────────────────────────────────────────── -->
+    <section class="lp-final">
+      <div class="lp-final__glow" aria-hidden="true"></div>
+      <div class="wrap lp-final__inner reveal">
+        <h2 class="lp-final__title">Catch every word, starting with the next one.</h2>
+        <p class="lp-final__sub">Tap record, let the tone do the asking, and keep a transcript you actually own.</p>
+        <a class="appstore-btn" href="https://apps.apple.com/us/app/attesta/id6771519623" aria-label="Download Attesta on the App Store">
+          <svg class="appstore-btn__apple" viewBox="0 0 384 512" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <span class="appstore-btn__text"><small>Download on the</small><strong>App&nbsp;Store</strong></span>
+        </a>
+        <p class="lp-final__micro">Five minutes free &middot; $9.99/mo or $1.99 per 30 min &middot; iPhone, iPad &amp; Mac.</p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -121,24 +307,22 @@
           <img src="assets/logo.svg" alt="Attesta logo" class="footer__logo" />
           <span>Attesta</span>
         </a>
-        <p class="footer__tagline">AI transcripts for every conversation — recorded on your tap, with an audible tone, and never used to train AI.</p>
+        <p class="footer__tagline">Catch every word — recorded on your tap, announced with a tone, and never used to train a model.</p>
         <a class="footer__soon" href="https://apps.apple.com/us/app/attesta/id6771519623">
-          <svg class="footer__apple" viewBox="0 0 384 512" width="13" height="13" aria-hidden="true">
-            <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
-          </svg>
+          <svg class="footer__apple" viewBox="0 0 384 512" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
           Download on the App&nbsp;Store
         </a>
       </div>
 
       <nav class="footer__links" aria-label="Guides">
         <span class="footer__col-title">Guides</span>
-        <a href="ai-voice-recorder/index.html">AI voice recorder</a>
         <a href="how-to-transcribe-an-interview/index.html">Transcribe an interview</a>
-        <a href="otter-alternative/index.html">Otter alternatives</a>
-        <a href="attesta-vs-otter/index.html">Attesta vs Otter</a>
+        <a href="record-lectures/index.html">Record lectures</a>
+        <a href="record-a-meeting-on-iphone/index.html">Record a meeting</a>
+        <a href="transcribe-a-podcast/index.html">Transcribe a podcast</a>
       </nav>
 
-      <nav class="footer__links" aria-label="Footer">
+      <nav class="footer__links" aria-label="Company">
         <span class="footer__col-title">Company</span>
         <a href="guides/index.html">All guides</a>
         <a href="pricing/index.html">Pricing</a>
@@ -154,7 +338,6 @@
     </div>
   </footer>
 
-  <!-- UI behaviour: reveal sections as they scroll into view. -->
   <script>
     (function () {
       var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -168,6 +351,12 @@
           });
         }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
         hidden.forEach(function (el) { io.observe(el); });
+      }
+      // Nav: solidify on scroll
+      var nav = document.querySelector(".lp-nav");
+      if (nav) {
+        var onScroll = function () { nav.classList.toggle("is-scrolled", window.scrollY > 12); };
+        onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
       }
     })();
   </script>
