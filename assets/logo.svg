@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Attesta">
-  <rect width="256" height="256" rx="57" fill="#ECECEE"/>
-  <rect x="64" y="82" width="26" height="92" rx="13" fill="#2F7CEF"/>
-  <rect x="115" y="49" width="26" height="158" rx="13" fill="#9059F1"/>
-  <rect x="166" y="91" width="26" height="74" rx="13" fill="#E4428A"/>
+  <rect width="256" height="256" rx="57" fill="#000000"/>
+  <rect x="64" y="82" width="26" height="92" rx="13" fill="#60A1FF"/>
+  <rect x="115" y="48" width="26" height="160" rx="13" fill="#B7A1FB"/>
+  <rect x="166" y="91" width="26" height="74" rx="13" fill="#F88BC3"/>
 </svg>
