@@ -64,6 +64,13 @@
       font-size: 14px; margin: 12px 0;
     }
     .muted { color: var(--text-secondary); font-size: 14px; }
+    .plan__loading { display: flex; align-items: center; gap: 10px; color: var(--text-secondary); padding: 6px 0; }
+    .spinner {
+      width: 18px; height: 18px; border-radius: 50%; display: inline-block;
+      border: 2px solid var(--border); border-top-color: var(--link);
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
     .hidden { display: none !important; }
     .center { text-align: center; }
   </style>
@@ -103,7 +110,8 @@
       </div>
 
       <div class="billing-card">
-        <div class="plan__row">
+        <div class="plan__loading" id="plan-loading"><span class="spinner"></span>Loading your plan…</div>
+        <div class="plan__row hidden" id="plan-row">
           <span class="plan__minutes" id="minutes">—</span>
           <span class="plan__unit">minutes left</span>
           <span class="acct__spacer"></span>
@@ -116,7 +124,7 @@
         Payment received — your minutes are being added. This can take a few seconds.
       </div>
 
-      <div class="billing-card">
+      <div class="billing-card hidden" id="actions-card">
         <div class="actions" id="actions"><!-- rendered by JS --></div>
       </div>
     </div>
@@ -160,6 +168,10 @@
         $("signed-out").classList.toggle("hidden", !!user);
         $("signed-in").classList.toggle("hidden", !user);
         if (!user) return;
+        // Loading state until /entitlements arrives.
+        $("plan-loading").classList.remove("hidden");
+        $("plan-row").classList.add("hidden");
+        $("actions-card").classList.add("hidden");
         const meta = user.user_metadata || {};
         const name = meta.full_name || meta.name || user.email || "Your account";
         $("name").textContent = name;
@@ -182,6 +194,9 @@
       }
 
       function renderPlan(e) {
+        $("plan-loading").classList.add("hidden");
+        $("plan-row").classList.remove("hidden");
+        $("actions-card").classList.remove("hidden");
         const isPro = e.tier === "pro";
         $("minutes").textContent = e.minutesRemaining;
         const badge = $("tier-badge");
