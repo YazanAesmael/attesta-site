@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Your Account — Attesta</title>
+  <meta name="description" content="Manage your Attesta plan — see your minutes, upgrade to Pro, buy minutes, and manage your subscription." />
+  <meta name="theme-color" content="#0A0B14" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png" />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <script src="config.js"></script>
+  <style>
+    .billing-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 16px 0;
+    }
+    .acct { display: flex; align-items: center; gap: 14px; }
+    .acct__avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--surface-strong); object-fit: cover;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600; color: var(--text-secondary);
+    }
+    .acct__name { font-weight: 600; }
+    .acct__email { color: var(--text-secondary); font-size: 14px; }
+    .acct__spacer { flex: 1; }
+    .plan__row { display: flex; align-items: baseline; gap: 10px; }
+    .plan__minutes { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; }
+    .plan__unit { color: var(--text-secondary); }
+    .badge {
+      display: inline-block; padding: 3px 10px; border-radius: 999px;
+      font-size: 13px; font-weight: 600; vertical-align: middle;
+    }
+    .badge--pro { background: var(--brand-gradient); color: #0A0B14; }
+    .badge--free { background: var(--surface-strong); color: var(--text-secondary); }
+    .status-note { color: var(--text-secondary); font-size: 14px; margin-top: 6px; }
+    .actions { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .btn {
+      appearance: none; border: 1px solid var(--border); cursor: pointer;
+      border-radius: 12px; padding: 13px 18px; font-size: 16px; font-weight: 600;
+      background: var(--surface-strong); color: var(--text); text-align: center;
+      font-family: inherit; transition: transform .06s ease, opacity .2s ease;
+    }
+    .btn:active { transform: scale(0.99); }
+    .btn:disabled { opacity: 0.5; cursor: default; }
+    .btn--primary { background: var(--brand-gradient); color: #0A0B14; border: none; }
+    .btn--google { display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .btn--link {
+      background: none; border: none; color: var(--link); padding: 6px;
+      font-size: 14px; width: auto; font-weight: 500;
+    }
+    .notice {
+      background: var(--surface-strong); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px; color: var(--text-secondary);
+      font-size: 14px; margin: 12px 0;
+    }
+    .muted { color: var(--text-secondary); font-size: 14px; }
+    .hidden { display: none !important; }
+    .center { text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <img src="../assets/logo.svg" alt="" class="site-header__logo" />
+      <a href="../index.html" class="site-header__name">Attesta</a>
+    </header>
+
+    <h1 class="page-title">Your Account</h1>
+
+    <!-- Loading -->
+    <div id="loading" class="billing-card center muted">Loading…</div>
+
+    <!-- Signed out -->
+    <div id="signed-out" class="hidden">
+      <div class="billing-card">
+        <p>Sign in to see your minutes, upgrade to Pro, buy minutes, and manage your subscription.</p>
+        <div class="actions">
+          <button class="btn btn--primary btn--google" id="btn-signin">Sign in with Google</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signed in -->
+    <div id="signed-in" class="hidden">
+      <div class="billing-card acct">
+        <img id="avatar" class="acct__avatar" alt="" />
+        <div>
+          <div class="acct__name" id="name">—</div>
+          <div class="acct__email" id="email">—</div>
+        </div>
+        <div class="acct__spacer"></div>
+        <button class="btn btn--link" id="btn-signout">Sign out</button>
+      </div>
+
+      <div class="billing-card">
+        <div class="plan__row">
+          <span class="plan__minutes" id="minutes">—</span>
+          <span class="plan__unit">minutes left</span>
+          <span class="acct__spacer"></span>
+          <span class="badge" id="tier-badge">—</span>
+        </div>
+        <div class="status-note hidden" id="status-note"></div>
+      </div>
+
+      <div id="processing" class="notice hidden">
+        Payment received — your minutes are being added. This can take a few seconds.
+      </div>
+
+      <div class="billing-card">
+        <div class="actions" id="actions"><!-- rendered by JS --></div>
+      </div>
+    </div>
+
+    <p class="muted center" style="margin-top:24px">
+      Subscriptions bought in the iPhone or iPad app are managed in the App Store, not here.
+    </p>
+
+    <footer class="site-footer">
+      <a href="../index.html">Home</a>
+      <a href="../privacy/index.html">Privacy Policy</a>
+      <a href="../terms/index.html">Terms of Service</a>
+      <a href="mailto:support@attesta.cc">support@attesta.cc</a>
+      <span class="site-footer__spacer"></span>
+      <span class="site-footer__copy">&copy; 2026 Attesta</span>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const cfg = window.ATTESTA_BILLING_CONFIG;
+      const sb = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
+
+      // Paddle.js — sandbox vs production per config.
+      if (cfg.PADDLE_ENV !== "production") Paddle.Environment.set("sandbox");
+      Paddle.Initialize({ token: cfg.PADDLE_CLIENT_TOKEN, eventCallback: onPaddleEvent });
+
+      const $ = (id) => document.getElementById(id);
+      let session = null, user = null;
+
+      async function refresh() {
+        const { data } = await sb.auth.getSession();
+        session = data.session;
+        user = session ? session.user : null;
+        render();
+        if (user) loadEntitlements();
+      }
+
+      function render() {
+        $("loading").classList.add("hidden");
+        $("signed-out").classList.toggle("hidden", !!user);
+        $("signed-in").classList.toggle("hidden", !user);
+        if (!user) return;
+        const meta = user.user_metadata || {};
+        const name = meta.full_name || meta.name || user.email || "Your account";
+        $("name").textContent = name;
+        $("email").textContent = user.email || "";
+        const avatar = meta.avatar_url || meta.picture;
+        if (avatar) { $("avatar").src = avatar; }
+        else { $("avatar").removeAttribute("src"); $("avatar").textContent = (name[0] || "?").toUpperCase(); }
+        // Show the post-checkout processing note if we just returned from one.
+        if (new URLSearchParams(location.search).get("success")) $("processing").classList.remove("hidden");
+      }
+
+      async function loadEntitlements() {
+        try {
+          const res = await fetch(cfg.EDGE_BASE + "/entitlements", {
+            headers: { Authorization: "Bearer " + session.access_token },
+          });
+          if (!res.ok) return;
+          renderPlan(await res.json());
+        } catch (_e) { /* leave the placeholders */ }
+      }
+
+      function renderPlan(e) {
+        const isPro = e.tier === "pro";
+        $("minutes").textContent = e.minutesRemaining;
+        const badge = $("tier-badge");
+        badge.textContent = isPro ? "Pro" : "Free";
+        badge.className = "badge " + (isPro ? "badge--pro" : "badge--free");
+        const note = $("status-note");
+        if (e.subscriptionStatus === "grace") {
+          note.textContent = "There's a billing issue with your subscription — update your payment method to keep Pro.";
+          note.classList.remove("hidden");
+        } else { note.classList.add("hidden"); }
+        renderActions(isPro);
+      }
+
+      function renderActions(isPro) {
+        const el = $("actions");
+        el.innerHTML = "";
+        if (!isPro) {
+          el.appendChild(btn("Upgrade to Pro — Annual", "btn--primary", () => checkout(cfg.PRICE_PRO_ANNUAL)));
+          el.appendChild(btn("Upgrade to Pro — Monthly", "", () => checkout(cfg.PRICE_PRO_MONTHLY)));
+        }
+        el.appendChild(btn("Buy 30 minutes", isPro ? "btn--primary" : "", () => checkout(cfg.PRICE_MINUTES_30)));
+        if (isPro) el.appendChild(btn("Manage subscription", "", openPortal));
+      }
+
+      function btn(label, extra, onClick) {
+        const b = document.createElement("button");
+        b.className = "btn " + extra;
+        b.textContent = label;
+        b.addEventListener("click", onClick);
+        return b;
+      }
+
+      function checkout(priceId, quantity) {
+        if (!priceId || priceId.indexOf("pri_") !== 0) {
+          alert("This plan isn't configured yet."); return;
+        }
+        Paddle.Checkout.open({
+          items: [{ priceId: priceId, quantity: quantity || 1 }],
+          customer: user.email ? { email: user.email } : undefined,
+          // The ONLY identity link the webhook trusts — never the checkout email.
+          customData: { supabase_user_id: user.id },
+          settings: { successUrl: location.origin + "/billing?success=1" },
+        });
+      }
+
+      function onPaddleEvent(ev) {
+        if (ev && ev.name === "checkout.completed") {
+          $("processing").classList.remove("hidden");
+          // The webhook credits asynchronously — poll the balance a few times.
+          setTimeout(loadEntitlements, 2500);
+          setTimeout(loadEntitlements, 7000);
+        }
+      }
+
+      async function openPortal() {
+        try {
+          const res = await fetch(cfg.EDGE_BASE + "/paddle-portal", {
+            headers: { Authorization: "Bearer " + session.access_token },
+          });
+          const { url } = await res.json();
+          if (url) location.href = url;
+          else alert("No subscription to manage.");
+        } catch (_e) { alert("Couldn't open the billing portal. Try again."); }
+      }
+
+      $("btn-signin").addEventListener("click", () =>
+        sb.auth.signInWithOAuth({
+          provider: "google",
+          options: { redirectTo: location.origin + "/billing" },
+        }));
+      $("btn-signout").addEventListener("click", async () => { await sb.auth.signOut(); location.href = location.origin + "/billing"; });
+
+      sb.auth.onAuthStateChange((_e, s) => { session = s; user = s ? s.user : null; render(); if (user) loadEntitlements(); });
+      refresh();
+    })();
+  </script>
+</body>
+</html>
