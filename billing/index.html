@@ -238,7 +238,9 @@
           customer: user.email ? { email: user.email } : undefined,
           // The ONLY identity link the webhook trusts — never the checkout email.
           customData: { supabase_user_id: user.id },
-          settings: { successUrl: location.origin + "/billing?success=1" },
+          // No successUrl: the eventCallback (checkout.completed) handles the
+          // post-purchase flow, and a custom successUrl domain needs Paddle
+          // approval — an unapproved one 400s the transaction-checkout create.
         });
       }
 
