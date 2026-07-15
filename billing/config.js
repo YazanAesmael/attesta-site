@@ -1,23 +1,23 @@
 // attesta.cc/billing — client config.
 //
-// These are PUBLIC client identifiers, safe to ship in the page:
-//   * the Supabase anon key is RLS-protected (see Attesta docs/SECURITY.md),
-//   * the Paddle client-side token is a browser token with limited access.
+// Every value here is a PUBLIC client identifier — and unavoidably public once
+// deployed: a Supabase web client exposes its anon key, and Paddle.js exposes its
+// client-side token, by design. Neither is a secret:
+//   * SUPABASE_ANON_KEY is RLS-protected (see Attesta docs/SECURITY.md),
+//   * PADDLE_CLIENT_TOKEN is a limited-access browser token.
+// The SECRET Paddle API key + webhook secret live in Supabase, NEVER here.
 //
-// SANDBOX values below. Switch to LIVE for production (live client token + live
-// price ids + PADDLE_ENV="production"). The price ids MUST match the server
-// (PADDLE_PRICE_* secrets on the paddle-webhook / paddle-prices functions).
+// SANDBOX values below. For LIVE: swap the client token + price ids and set
+// PADDLE_ENV="production". Price ids MUST match the server PADDLE_PRICE_* secrets.
 window.ATTESTA_BILLING_CONFIG = {
   // ── Supabase (same project the app uses) ──────────────────────────────────
   SUPABASE_URL: "https://zpgqtfrtrckyidbmgrah.supabase.co",
-  // TODO: paste your app's supabase.anonKey (public, RLS-protected) — it has to
-  // be in the page for auth to work.
-  SUPABASE_ANON_KEY: "YOUR_SUPABASE_ANON_KEY",
+  SUPABASE_ANON_KEY:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwZ3F0ZnJ0cmNreWlkYm1ncmFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyNzkyNjIsImV4cCI6MjA5NDg1NTI2Mn0.eOxQHe0qHXNWzSa9A2QwhTRA9vCoDdJkYsf6apd_ftc",
   EDGE_BASE: "https://zpgqtfrtrckyidbmgrah.supabase.co/functions/v1",
 
   // ── Paddle (sandbox) ──────────────────────────────────────────────────────
-  // TODO: Developer Tools → Authentication → client-side token (starts with test_).
-  PADDLE_CLIENT_TOKEN: "test_YOUR_PADDLE_CLIENT_TOKEN",
+  PADDLE_CLIENT_TOKEN: "test_eabf70c2d06ecef1ee875f1f46f",
   PADDLE_ENV: "sandbox",
 
   // Paddle price ids (sandbox) — wired 2026-07-15.
