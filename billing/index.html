@@ -193,12 +193,24 @@
         } catch (_e) { /* leave the placeholders */ }
       }
 
+      // Minutes come back as a raw float (the balance is metered from real
+      // audio), e.g. 280.43333333333334 — printing that verbatim overflowed the
+      // row and pushed "minutes left" off screen. Show at most ONE decimal, and
+      // drop a trailing ".0" so a whole balance reads "300", not "300.0".
+      // Deliberately NOT floored: someone with 0.8 min still has ~48s, and "0"
+      // would read as an empty balance.
+      function formatMinutes(n) {
+        const v = Number(n);
+        if (!Number.isFinite(v)) return "—";
+        return v.toFixed(1).replace(/\.0$/, "");
+      }
+
       function renderPlan(e) {
         $("plan-loading").classList.add("hidden");
         $("plan-row").classList.remove("hidden");
         $("actions-card").classList.remove("hidden");
         const isPro = e.tier === "pro";
-        $("minutes").textContent = e.minutesRemaining;
+        $("minutes").textContent = formatMinutes(e.minutesRemaining);
         const badge = $("tier-badge");
         badge.textContent = isPro ? "Pro" : "Free";
         badge.className = "badge " + (isPro ? "badge--pro" : "badge--free");
