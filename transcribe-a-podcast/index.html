@@ -6,20 +6,20 @@
   <meta name="apple-itunes-app" content="app-id=6771519623" />
 
   <title>How to Transcribe a Podcast (2026 Guide) — Attesta</title>
-  <meta name="description" content="How to transcribe a podcast — record your own episode and get a transcript plus show notes automatically, or transcribe an existing audio file. Tips and free options." />
+  <meta name="description" content="How to transcribe a podcast — record your own episode and get a speaker-labeled transcript plus show notes automatically, or find the right tool for a file you've already recorded." />
   <link rel="canonical" href="https://attesta.cc/transcribe-a-podcast/" />
 
   <meta name="theme-color" content="#0A0B14" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
 
   <meta property="og:title" content="How to Transcribe a Podcast (2026 Guide)" />
-  <meta property="og:description" content="Record your episode and get a transcript plus show notes automatically — or transcribe an existing file. The fast way for creators." />
+  <meta property="og:description" content="Record your episode and get a speaker-labeled transcript plus show notes automatically — or find the right tool for an already-recorded file." />
   <meta property="og:url" content="https://attesta.cc/transcribe-a-podcast/" />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="How to Transcribe a Podcast (2026 Guide)" />
-  <meta name="twitter:description" content="Record your episode → transcript + show notes. The fast way for creators." />
+  <meta name="twitter:description" content="Record your episode → speaker-labeled transcript + show notes. The fast way for creators." />
   <meta name="twitter:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
 
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -40,6 +40,8 @@
     .related { margin: 40px 0 0; padding: 0; list-style: none; }
     .related li { margin-bottom: 10px; }
     ol.steps li { margin-bottom: 12px; }
+    .sample { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; font-size: 15px; line-height: 1.7; }
+    .sample .spk { color: var(--text); font-weight: 600; }
   </style>
 
   <script type="application/ld+json">
@@ -56,12 +58,27 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Attesta — Podcast Transcription",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "iOS, iPadOS, macOS",
+    "description": "Record a podcast episode on iPhone and get a speaker-labeled transcript with a summary and key topics, ready to turn into show notes. Audible consent tone, no model training.",
+    "url": "https://attesta.cc/transcribe-a-podcast/",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Attesta", "url": "https://attesta.cc/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "Can ChatGPT transcribe a podcast?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Not from audio on its own — it needs a speech-to-text step first, and it does not handle speaker labels. A recording or transcription app does the audio-to-text in one pass; Attesta also labels who said what and writes a summary." } },
+        "acceptedAnswer": { "@type": "Answer", "text": "Not from audio on its own — it needs a speech-to-text step first, and it does not handle speaker labels. A recording app does the audio-to-text in one pass; Attesta also labels who said what and writes a summary." } },
       { "@type": "Question", "name": "How do I transcribe my own podcast episode?",
         "acceptedAnswer": { "@type": "Answer", "text": "Record the conversation with an app and let it transcribe. With Attesta you tap record (an audible tone tells your guest), and afterward you get a speaker-labeled transcript plus a summary and key topics you can turn into show notes." } },
+      { "@type": "Question", "name": "Can I upload an already-recorded episode to Attesta to transcribe it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No — Attesta records live from your iPhone's microphone; it does not accept uploaded audio files. For an episode you have already recorded and exported, look for a file-based transcription tool instead. If you still have the conversation ahead of you, record it with Attesta and skip the export step entirely." } },
       { "@type": "Question", "name": "How do I add a transcript to a podcast?",
         "acceptedAnswer": { "@type": "Answer", "text": "Generate the transcript, clean up names and terms, then upload it to your host (Apple Podcasts and Spotify support episode transcripts) or paste it into your show notes. Attesta gives you the transcript to export." } },
       { "@type": "Question", "name": "Is there a free way to transcribe a podcast?",
@@ -80,12 +97,13 @@
     <p class="crumbs"><a href="../index.html">Home</a> &rsaquo; <a href="../guides/index.html">Guides</a> &rsaquo; Transcribe a podcast</p>
 
     <h1 class="page-title">How to transcribe a podcast</h1>
-    <p class="page-meta">Guides &middot; Updated June 2026</p>
+    <p class="page-meta">Guides &middot; Updated July 2026</p>
 
     <p class="lede">
       A transcript makes your podcast searchable, accessible, and easy to turn into show notes, clips,
       and social posts. The best approach depends on whether you are <strong>recording the episode
-      yourself</strong> or working from an <strong>existing audio file</strong>. Here is how to do both.
+      yourself</strong> or working from an <strong>existing audio file</strong>. Here is how to do both,
+      plus why speaker labels matter more for a podcast than almost any other kind of recording.
     </p>
 
     <hr class="brand-rule" />
@@ -97,26 +115,57 @@
     </p>
     <ol class="steps">
       <li><strong>Tap record</strong> when you start. An audible tone plays, so your guest knows it is on.</li>
-      <li><strong>Keep the mic close</strong> to each speaker; clean audio means an accurate transcript.</li>
+      <li><strong>Give each speaker their own mic</strong> if you can, or keep everyone an equal distance from the phone — even levels make for cleaner diarization.</li>
       <li><strong>Tap stop</strong> at the end.</li>
       <li><strong>Get a speaker-labeled transcript</strong> plus a summary, key topics, and quotes &mdash; the raw material for your show notes.</li>
     </ol>
     <p>Because it labels who said what, you can drop the transcript straight into show notes or pull standout quotes for clips.</p>
 
+    <h2>Why speaker labels matter more for a podcast</h2>
+    <p>
+      A single-host monologue transcribes fine as a wall of text. A podcast with a host and one or more
+      guests does not &mdash; without labels, a reader cannot tell who made which point. Compare a raw
+      transcript of a two-person episode&hellip;
+    </p>
+    <p class="sample">
+      so today we are talking about pricing and I think the biggest mistake people make is charging by the seat instead of by usage that matches what I have seen too especially with teams that barely use the tool
+    </p>
+    <p>&hellip;with the same audio, speaker-labeled:</p>
+    <p class="sample">
+      <span class="spk">Host:</span> So today we are talking about pricing, and I think the biggest mistake people make is charging by the seat instead of by usage.<br>
+      <span class="spk">Guest:</span> That matches what I have seen too — especially with teams that barely use the tool.
+    </p>
+    <p>
+      The labeled version is what you actually want for show notes, pull-quotes, and an accessible
+      transcript page &mdash; you can attribute a quote to the right person without re-listening to
+      check. It also holds up better with three or four voices on a panel episode, where an
+      unlabeled transcript stops being usable almost immediately.
+    </p>
+
     <h2>Transcribe an existing audio file</h2>
     <p>
-      If the episode is already recorded and exported as a file, you want a <strong>file-based
-      transcription tool</strong> &mdash; you upload the audio and it returns text. Attesta is a live
-      recorder rather than a file uploader, so for an already-finished MP3 a web transcription service is
-      the better fit. If you still have the conversation to record, or you want a transcript <em>plus</em>
-      a structured summary in one step, record it with Attesta instead.
+      If the episode is already recorded and exported as a file, <strong>Attesta is not the right
+      tool</strong> &mdash; it is a live recorder, not a file-upload service, so it cannot process an
+      MP3 or WAV you already have. You want a dedicated file-based transcription tool instead. A few
+      things worth checking before you pick one:
+    </p>
+    <ul>
+      <li><strong>Speaker separation.</strong> Podcasts almost always have more than one voice; a tool that only returns a flat transcript will cost you hours of manual labeling afterward.</li>
+      <li><strong>Pricing you can predict.</strong> Look for a transparent per-minute or per-file rate rather than a tiered plan that gates export or long files behind an upsell.</li>
+      <li><strong>Turnaround time.</strong> Some file-upload services queue longer files; check this against your publishing deadline, not just the marketing page.</li>
+      <li><strong>What happens to the audio afterward.</strong> If the file has anything sensitive in it (a guest's personal story, unreleased business details), check the provider's retention and training policy before uploading.</li>
+    </ul>
+    <p>
+      If you still have the conversation ahead of you &mdash; a future episode, or a re-record &mdash;
+      recording it with Attesta skips the export/upload round-trip entirely: you get the speaker-labeled
+      transcript and a structured summary the moment you stop recording.
     </p>
 
     <h2>Turn the transcript into show notes</h2>
     <ul>
       <li><strong>Lead with the summary</strong> &mdash; a few lines on what the episode covers.</li>
       <li><strong>List the key topics</strong> as timestamps so listeners can jump around.</li>
-      <li><strong>Pull two or three quotes</strong> for the episode description and social posts.</li>
+      <li><strong>Pull two or three quotes</strong>, attributed to the right host or guest, for the episode description and social posts.</li>
       <li><strong>Publish the full transcript</strong> &mdash; Apple Podcasts and Spotify both support episode transcripts, and it helps you get found in search.</li>
     </ul>
 
@@ -138,6 +187,9 @@
     <h3>How do I transcribe my own podcast episode?</h3>
     <p>Record the conversation with an app and let it transcribe. Attesta gives you a speaker-labeled transcript plus a summary and topics to turn into show notes.</p>
 
+    <h3>Can I upload an already-recorded episode to Attesta to transcribe it?</h3>
+    <p>No &mdash; Attesta records live from your iPhone's microphone and does not accept uploaded audio files. For an episode you have already exported, use a file-based transcription tool instead. If you still have the conversation ahead of you, record it with Attesta and skip the export step.</p>
+
     <h3>How do I add a transcript to a podcast?</h3>
     <p>Generate it, clean up names, then upload to your host (Apple Podcasts and Spotify support transcripts) or paste it into your show notes. Attesta lets you export the transcript.</p>
 
@@ -147,8 +199,8 @@
     <h2>Related guides</h2>
     <ul class="related">
       <li><a href="../how-to-transcribe-an-interview/index.html">How to transcribe an interview</a></li>
+      <li><a href="../speaker-labels-transcription/index.html">Speaker labels in transcription, explained</a></li>
       <li><a href="../ai-voice-recorder/index.html">AI voice recorder for iPhone — no extra hardware</a></li>
-      <li><a href="../otter-alternative/index.html">The best Otter.ai alternatives in 2026</a></li>
     </ul>
 
     <footer class="site-footer">
