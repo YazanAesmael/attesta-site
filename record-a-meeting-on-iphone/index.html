@@ -6,14 +6,14 @@
   <meta name="apple-itunes-app" content="app-id=6771519623" />
 
   <title>How to Record a Meeting on iPhone (+ Get the Minutes) — Attesta</title>
-  <meta name="description" content="How to record a meeting on your iPhone and get the minutes automatically — in-person meetings, action items and decisions, consent, and what to use for Zoom or Teams." />
+  <meta name="description" content="How to record a meeting on your iPhone and get the minutes automatically — in-person meetings, speaker-labeled action items and decisions, consent, and what to use for Zoom or Teams." />
   <link rel="canonical" href="https://attesta.cc/record-a-meeting-on-iphone/" />
 
   <meta name="theme-color" content="#0A0B14" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
 
   <meta property="og:title" content="How to Record a Meeting on iPhone (+ Get the Minutes)" />
-  <meta property="og:description" content="Record an in-person meeting on your iPhone and get the transcript, action items, and decisions automatically — with an audible consent tone." />
+  <meta property="og:description" content="Record an in-person meeting on your iPhone and get a speaker-labeled transcript, action items, and decisions automatically — with an audible consent tone." />
   <meta property="og:url" content="https://attesta.cc/record-a-meeting-on-iphone/" />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
@@ -40,6 +40,8 @@
     .related { margin: 40px 0 0; padding: 0; list-style: none; }
     .related li { margin-bottom: 10px; }
     ol.steps li { margin-bottom: 12px; }
+    .sample { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; font-size: 15px; line-height: 1.7; }
+    .sample .spk { color: var(--text); font-weight: 600; }
   </style>
 
   <script type="application/ld+json">
@@ -65,7 +67,9 @@
       { "@type": "Question", "name": "How do I get meeting minutes automatically?",
         "acceptedAnswer": { "@type": "Answer", "text": "Record the meeting with an app that runs an AI summary. Attesta turns the recording into structured minutes: a summary, the decisions made, the action items with owners where mentioned, and the people involved — no manual note-taking." } },
       { "@type": "Question", "name": "Is it legal to record a meeting?",
-        "acceptedAnswer": { "@type": "Answer", "text": "It depends where you are. Some regions require only one party to consent, others require everyone. The safe approach is to tell the room you are recording. Attesta plays an audible tone at the start of every recording, so consent is clear." } }
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends where you are. Some regions require only one party to consent, others require everyone. The safe approach is to tell the room you are recording. Attesta plays an audible tone at the start of every recording, so consent is clear." } },
+      { "@type": "Question", "name": "Does it label who said what when several people are in the meeting?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Attesta separates the voices in the recording and labels each one (Speaker 1, Speaker 2, and so on). That labeling is what lets the action items and decisions in your minutes come with the right person already attached, instead of a flat wall of text you have to re-listen to sort out." } }
     ]
   }
   </script>
@@ -80,7 +84,7 @@
     <p class="crumbs"><a href="../index.html">Home</a> &rsaquo; <a href="../guides/index.html">Guides</a> &rsaquo; Record a meeting on iPhone</p>
 
     <h1 class="page-title">How to record a meeting on your iPhone</h1>
-    <p class="page-meta">Guides &middot; Updated June 2026</p>
+    <p class="page-meta">Guides &middot; Updated July 2026</p>
 
     <p class="lede">
       The decisions made in a meeting tend to evaporate the moment everyone walks out. Recording fixes
@@ -107,6 +111,32 @@
       summary, the <strong>decisions</strong> made, the <strong>action items</strong> with owners where
       they were named, and the people involved. A week later you have a record of what was actually
       said, not a recollection.
+    </p>
+
+    <h2>Why speaker labels matter in a meeting</h2>
+    <p>
+      A meeting is rarely one voice. The moment a second or third person joins, a flat transcript
+      becomes a wall of text where you cannot tell who committed to what. Compare a raw transcript of a
+      three-person planning call&hellip;
+    </p>
+    <p class="sample">
+      ok so I can have the deck ready by Wednesday can you also loop in legal before we send it I will do that today and can someone confirm the budget with finance yes I will check with finance this afternoon
+    </p>
+    <p>&hellip;with the same audio, speaker-labeled:</p>
+    <p class="sample">
+      <span class="spk">Priya:</span> Okay, so I can have the deck ready by Wednesday.<br>
+      <span class="spk">Diego:</span> Can you also loop in legal before we send it?<br>
+      <span class="spk">Priya:</span> I will do that today. Can someone confirm the budget with finance?<br>
+      <span class="spk">Sam:</span> Yes, I will check with finance this afternoon.
+    </p>
+    <p>
+      Labeled, those six lines turn into three clear commitments with an owner each &mdash; exactly what
+      a set of meeting minutes needs. Unlabeled, someone has to re-listen just to work out who said
+      "I will do that today," which defeats the point of automatic minutes. This is also where in-person
+      meetings are the harder case: tools built for online calls get one clean audio feed per
+      participant, while a room with three or four people around a single phone is a tougher diarization
+      problem. Attesta separates the voices from that one in-room recording, so the minutes come out
+      attributed without a separate mic for everyone.
     </p>
 
     <h2>What about Zoom or Teams meetings?</h2>
@@ -149,9 +179,12 @@
     <h3>Is it legal to record a meeting?</h3>
     <p>It depends on your region's consent laws. The safe approach is to tell the room. Attesta's audible tone makes that automatic.</p>
 
+    <h3>Does it label who said what when several people are in the meeting?</h3>
+    <p>Yes &mdash; Attesta separates the voices in the recording and labels each one (Speaker 1, Speaker 2, and so on). That is what lets the action items and decisions in your minutes come with the right owner already attached.</p>
+
     <h2>Related guides</h2>
     <ul class="related">
-      <li><a href="../ai-voice-recorder/index.html">AI voice recorder for iPhone — no extra hardware</a></li>
+      <li><a href="../speaker-labels-transcription/index.html">Speaker labels in transcription, explained</a></li>
       <li><a href="../attesta-vs-otter/index.html">Attesta vs Otter — a head-to-head</a></li>
       <li><a href="../how-to-transcribe-an-interview/index.html">How to transcribe an interview</a></li>
     </ul>
