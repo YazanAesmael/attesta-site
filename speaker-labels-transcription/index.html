@@ -62,11 +62,13 @@
       { "@type": "Question", "name": "What is a speaker label?",
         "acceptedAnswer": { "@type": "Answer", "text": "A speaker label is the tag in a transcript that marks who said each line, such as Speaker 1, Speaker 2, or a person's name. It turns a wall of text into a readable back-and-forth so you can follow the conversation." } },
       { "@type": "Question", "name": "How do you identify speakers in transcription?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Software uses speaker diarization, which analyzes the audio to tell voices apart and groups each segment by who spoke. You then rename the generic Speaker 1 or Speaker 2 tags with real names. Clear audio and distinct voices make identification far more accurate." } },
+        "acceptedAnswer": { "@type": "Answer", "text": "Software uses speaker diarization, which analyzes the audio to tell voices apart and groups each segment by who spoke, keeping the same tag for that voice for the whole conversation. Clear audio and distinct voices make identification far more accurate." } },
       { "@type": "Question", "name": "What is the proper format for a speaker label?",
         "acceptedAnswer": { "@type": "Answer", "text": "The convention is the speaker's name or tag followed by a colon, then their words, with a new line each time the speaker changes. For example: 'Maria: Let's ship on Friday.' Adding a timestamp at each turn is common for interviews and meetings." } },
       { "@type": "Question", "name": "How do I get a transcript with speaker labels?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Use a transcription tool that supports diarization. Attesta does it automatically on iPhone: record the conversation and you get a speaker-labeled transcript plus a summary, with no setup. You can then rename speakers to real names." } }
+        "acceptedAnswer": { "@type": "Answer", "text": "Use a transcription tool that supports diarization. Attesta does it automatically on iPhone: record the conversation and you get a speaker-labeled transcript plus a summary, with no setup." } },
+      { "@type": "Question", "name": "Can I rename speakers to their real names in Attesta?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not yet. Attesta labels each voice Speaker 1, Speaker 2, and so on, consistently for the whole transcript, so you can follow who said what without doing anything yourself. Renaming those tags to real names is on the roadmap." } }
     ]
   }
   </script>
@@ -81,7 +83,7 @@
     <p class="crumbs"><a href="../index.html">Home</a> &rsaquo; <a href="../guides/index.html">Guides</a> &rsaquo; Speaker labels in transcription</p>
 
     <h1 class="page-title">Speaker labels in transcription, explained</h1>
-    <p class="page-meta">Guides &middot; Updated June 2026</p>
+    <p class="page-meta">Guides &middot; Updated July 2026</p>
 
     <p class="lede">
       A transcript without <strong>speaker labels</strong> is a wall of text where you cannot tell who
@@ -112,7 +114,8 @@
     <p>
       The technical name is <strong>speaker diarization</strong>. The software analyzes the audio,
       detects how many distinct voices are present, and groups each segment by who spoke, producing the
-      generic <em>Speaker 1 / Speaker 2</em> tags. You then rename those to real names. It is a separate
+      generic <em>Speaker 1 / Speaker 2</em> tags. The same voice keeps the same tag for the whole
+      conversation, so once you know who Speaker 1 is, every line stays mapped to them. It is a separate
       step from transcription itself: transcription turns sound into words, diarization decides who owns
       each stretch of words.
     </p>
@@ -127,7 +130,7 @@
       <li>Tap record (an audible tone tells the room it has started).</li>
       <li>Have your conversation, then tap stop.</li>
       <li>Get a transcript that is already split by speaker, plus a summary, with no setup.</li>
-      <li>Rename <em>Speaker 1 / Speaker 2</em> to real names if you want.</li>
+      <li>Each voice keeps its <em>Speaker 1 / Speaker 2</em> tag for the whole transcript, so you can follow along even in a long recording.</li>
     </ol>
 
     <h2>Tips for accurate speaker labels</h2>
@@ -154,13 +157,16 @@
     <p>The tag that marks who said each line in a transcript, like Speaker 1, Speaker 2, or a name. It turns a wall of text into a readable back-and-forth.</p>
 
     <h3>How do you identify speakers in transcription?</h3>
-    <p>Software uses speaker diarization to tell voices apart and group each segment by who spoke; you then rename the generic tags. Clear audio and distinct voices make it far more accurate.</p>
+    <p>Software uses speaker diarization to tell voices apart and group each segment by who spoke, keeping the same tag for that voice for the whole conversation. Clear audio and distinct voices make it far more accurate.</p>
 
     <h3>What is the proper format for a speaker label?</h3>
     <p>Name or tag, then a colon, then the words, with a new line each time the speaker changes (for example, "Maria: Let's ship on Friday."). Timestamps at each turn are common for interviews and meetings.</p>
 
     <h3>How do I get a transcript with speaker labels?</h3>
-    <p>Use a tool that supports diarization. Attesta does it automatically on iPhone: record the conversation and you get a speaker-labeled transcript plus a summary, then rename speakers if you want.</p>
+    <p>Use a tool that supports diarization. Attesta does it automatically on iPhone: record the conversation and you get a speaker-labeled transcript plus a summary, with no setup.</p>
+
+    <h3>Can I rename speakers to their real names in Attesta?</h3>
+    <p>Not yet. Attesta labels each voice Speaker 1, Speaker 2, and so on, consistently for the whole transcript, so you can follow who said what without doing anything yourself. Renaming those tags to real names is on the roadmap.</p>
 
     <h2>Related guides</h2>
     <ul class="related">
