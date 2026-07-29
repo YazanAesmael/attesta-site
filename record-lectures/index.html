@@ -6,20 +6,20 @@
   <meta name="apple-itunes-app" content="app-id=6771519623" />
 
   <title>How to Record Lectures (and Turn Them Into Notes) — Attesta</title>
-  <meta name="description" content="How to record lectures on your phone and turn them into searchable notes — the best way to capture class, tips for clear audio, consent, and a free way to start." />
+  <meta name="description" content="How to record lectures on your phone, label who said what in discussion, and get a summary with key points — tips, consent, and a free way to start." />
   <link rel="canonical" href="https://attesta.cc/record-lectures/" />
 
   <meta name="theme-color" content="#0A0B14" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
 
   <meta property="og:title" content="How to Record Lectures (and Turn Them Into Notes)" />
-  <meta property="og:description" content="Capture class on your phone and get a searchable transcript plus a summary and key points — with an audible consent tone." />
+  <meta property="og:description" content="Capture class on your phone, label each speaker in discussion, and get a transcript plus a summary and key points — with an audible consent tone." />
   <meta property="og:url" content="https://attesta.cc/record-lectures/" />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="How to Record Lectures (and Turn Them Into Notes)" />
-  <meta name="twitter:description" content="Record class, get a transcript + summary and key points. Free to start." />
+  <meta name="twitter:description" content="Record class, label who said what, get a summary and key points. Free to start." />
   <meta name="twitter:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
 
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -40,6 +40,8 @@
     .related { margin: 40px 0 0; padding: 0; list-style: none; }
     .related li { margin-bottom: 10px; }
     ol.steps li { margin-bottom: 12px; }
+    .sample { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; font-size: 15px; line-height: 1.7; }
+    .sample .spk { color: var(--text); font-weight: 600; }
   </style>
 
   <script type="application/ld+json">
@@ -65,7 +67,11 @@
       { "@type": "Question", "name": "What is the best app to record lectures?",
         "acceptedAnswer": { "@type": "Answer", "text": "The best lecture recorder gives you accurate transcription, a summary, and search — not just an audio file. Attesta does all three on iPhone, with pay-per-minute credits that never expire so there is no subscription to start." } },
       { "@type": "Question", "name": "Is it legal to record a lecture?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Usually yes for personal study, but many schools ask you to get the lecturer's permission first, and it is often a formal disability accommodation. Always check your school's policy and ask. Attesta plays an audible tone when recording starts, so it is never covert." } }
+        "acceptedAnswer": { "@type": "Answer", "text": "Usually yes for personal study, but many schools ask you to get the lecturer's permission first, and it is often a formal disability accommodation. Always check your school's policy and ask. Attesta plays an audible tone when recording starts, so it is never covert." } },
+      { "@type": "Question", "name": "Does it label who's speaking during a discussion or Q&A?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Attesta separates the voices in the room and labels each speaker, so a professor-and-students discussion comes back as a labeled exchange instead of one unbroken paragraph you have to sort out yourself." } },
+      { "@type": "Question", "name": "Is there a recording time limit for lectures?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Each recording captures up to 60 minutes before it stops automatically. Pause during a break to avoid burning time you are not using, and for a longer class start a second recording where the first one leaves off." } }
     ]
   }
   </script>
@@ -80,7 +86,7 @@
     <p class="crumbs"><a href="../index.html">Home</a> &rsaquo; <a href="../guides/index.html">Guides</a> &rsaquo; Record lectures</p>
 
     <h1 class="page-title">How to record lectures (and turn them into notes)</h1>
-    <p class="page-meta">Guides &middot; Updated June 2026</p>
+    <p class="page-meta">Guides &middot; Updated July 2026</p>
 
     <p class="lede">
       Recording a lecture lets you <strong>listen and understand</strong> instead of scrambling to
@@ -101,6 +107,29 @@
       <li><strong>Search it later</strong> &mdash; jump straight to the moment the professor explained that one confusing concept.</li>
     </ol>
 
+    <h2>Seminars, discussion sections, and study groups: label who said what</h2>
+    <p>
+      A lecture is one voice, but the discussion section afterward rarely is. The moment classmates
+      start answering the professor&rsquo;s questions, a flat transcript turns into a wall of text with
+      no way to tell who said what. Compare a raw transcript of a three-person discussion&hellip;
+    </p>
+    <p class="sample">
+      so does the ruling apply retroactively it does not apply retroactively but similar cases have used it as precedent so can we cite it in the paper yes as persuasive authority not binding
+    </p>
+    <p>&hellip;with the same audio, speaker-labeled:</p>
+    <p class="sample">
+      <span class="spk">Maya:</span> Does the ruling apply retroactively?<br>
+      <span class="spk">Prof. Chen:</span> It does not apply retroactively, but similar cases have used it as precedent.<br>
+      <span class="spk">Maya:</span> So can we cite it in the paper?<br>
+      <span class="spk">Prof. Chen:</span> Yes &mdash; as persuasive authority, not binding.
+    </p>
+    <p>
+      Labeled, that exchange is a clear answer you can find again before the exam. Unlabeled, it is a
+      run-on paragraph you have to reconstruct from memory. Attesta separates the voices in the room
+      &mdash; the professor, the classmate who asked the good question, the TA leading the section
+      &mdash; and labels each one, no separate mic required for anyone.
+    </p>
+
     <h2>Record lectures and take notes at the same time</h2>
     <p>
       The point is not the audio &mdash; it is being <em>present</em>. With the recording running, you
@@ -117,6 +146,22 @@
       <li><strong>Charge up.</strong> A 90-minute lecture is a long session; start with battery to spare.</li>
       <li><strong>Note the timestamp</strong> when something important is said, so you can find it fast later.</li>
     </ul>
+
+    <h2>What if the lecture runs long?</h2>
+    <p>
+      Each recording captures up to <strong>60 minutes</strong> before it stops automatically &mdash;
+      plenty for a standard class, tight for a 90-minute seminar. Two things help: <strong>pause</strong>
+      during a break (the clock stops with the recording, so you are not burning time you are not
+      using), and for a longer session, start a second recording where the first one leaves off. You end
+      up with two transcripts back to back instead of one, but nothing is cut off silently.
+    </p>
+
+    <h2>Keep it for exam review</h2>
+    <p>
+      Once the summary is ready, export it as a PDF straight from the recording &mdash; the summary, key
+      topics, action items, and decisions in one file you can drop into a study folder or share with a
+      study group before a midterm.
+    </p>
 
     <h2>Is it allowed?</h2>
     <p>
@@ -150,11 +195,18 @@
     <h3>Is it legal to record a lecture?</h3>
     <p>Usually fine for personal study, but check your school's policy and ask the lecturer; it is often a disability accommodation. Attesta's audible tone keeps it transparent.</p>
 
+    <h3>Does it label who's speaking during a discussion or Q&amp;A?</h3>
+    <p>Yes &mdash; Attesta separates the voices in the room and labels each speaker, so a professor-and-students discussion comes back labeled instead of one unbroken paragraph you have to sort out yourself.</p>
+
+    <h3>Is there a recording time limit for lectures?</h3>
+    <p>Each recording captures up to 60 minutes before it stops automatically. Pause during a break to avoid burning time you are not using, and for a longer class start a second recording where the first one leaves off.</p>
+
     <h2>Related guides</h2>
     <ul class="related">
       <li><a href="../how-to-transcribe-an-interview/index.html">How to transcribe an interview</a></li>
       <li><a href="../ai-voice-recorder/index.html">AI voice recorder for iPhone — no extra hardware</a></li>
       <li><a href="../record-a-meeting-on-iphone/index.html">How to record a meeting on your iPhone</a></li>
+      <li><a href="../speaker-labels-transcription/index.html">Speaker labels in transcription, explained</a></li>
     </ul>
 
     <footer class="site-footer">
