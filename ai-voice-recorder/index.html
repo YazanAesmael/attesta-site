@@ -6,20 +6,20 @@
   <meta name="apple-itunes-app" content="app-id=6771519623" />
 
   <title>AI Voice Recorder for iPhone — No Extra Hardware — Attesta</title>
-  <meta name="description" content="Attesta is an AI voice recorder for iPhone — no pendant or gadget to buy. Tap record and get a transcript, summary, and action items. Audible tone, no model training." />
+  <meta name="description" content="Attesta is an AI voice recorder for iPhone — no pendant or gadget to buy. Tap record and get a speaker-labeled transcript, summary, and action items. Audible tone, no model training." />
   <link rel="canonical" href="https://attesta.cc/ai-voice-recorder/" />
 
   <meta name="theme-color" content="#0A0B14" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
 
   <meta property="og:title" content="AI Voice Recorder for iPhone — No Extra Hardware" />
-  <meta property="og:description" content="Turn the iPhone you already own into an AI voice recorder. Transcript, summary, action items — with an audible tone and no model training." />
+  <meta property="og:description" content="Turn the iPhone you already own into an AI voice recorder. Speaker-labeled transcript, summary, action items — with an audible tone and no model training." />
   <meta property="og:url" content="https://attesta.cc/ai-voice-recorder/" />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AI Voice Recorder for iPhone — No Extra Hardware" />
-  <meta name="twitter:description" content="No gadget required. Tap record, get a transcript plus summary and action items." />
+  <meta name="twitter:description" content="No gadget required. Tap record, get a speaker-labeled transcript plus summary and action items." />
   <meta name="twitter:image" content="https://attesta.cc/assets/screenshots/og-card.png" />
 
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -39,6 +39,8 @@
     .cta-box .appstore-btn { margin: 0 auto; }
     .related { margin: 40px 0 0; padding: 0; list-style: none; }
     .related li { margin-bottom: 10px; }
+    .sample { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; font-size: 15px; line-height: 1.7; }
+    .sample .spk { color: var(--text); font-weight: 600; }
   </style>
 
   <script type="application/ld+json">
@@ -58,7 +60,7 @@
     "@type": "SoftwareApplication",
     "name": "Attesta — AI Voice Recorder",
     "applicationCategory": "ProductivityApplication",
-    "operatingSystem": "iOS, iPadOS, macOS",
+    "operatingSystem": "iOS",
     "description": "An AI voice recorder for iPhone. Tap record and get a speaker-labeled transcript with a summary, action items, and decisions. No extra hardware, audible consent tone, no model training.",
     "url": "https://attesta.cc/ai-voice-recorder/",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -77,7 +79,11 @@
       { "@type": "Question", "name": "Is there a free AI voice recorder?",
         "acceptedAnswer": { "@type": "Answer", "text": "Attesta has a free trial and pay-per-minute credits that never expire, so you can start without a subscription. Apple Voice Memos is free but gives you raw audio and text, not AI insights." } },
       { "@type": "Question", "name": "Does an AI voice recorder transcribe automatically?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. After you stop recording, Attesta transcribes the audio and generates a speaker-labeled transcript plus a summary, key topics, action items, and the people mentioned." } }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. After you stop recording, Attesta transcribes the audio and generates a speaker-labeled transcript plus a summary, key topics, action items, and the people mentioned." } },
+      { "@type": "Question", "name": "Can an AI voice recorder tell different speakers apart?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Attesta separates the distinct voices in a recording and labels them Speaker 1, Speaker 2, and so on, so a conversation between two or more people reads as a conversation instead of one unbroken block of text." } },
+      { "@type": "Question", "name": "How long can one recording be?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A single recording auto-stops at 60 minutes. You can pause and resume within that same recording — for a call that gets interrupted, or a break — without losing your place or starting a new file." } }
     ]
   }
   </script>
@@ -92,7 +98,7 @@
     <p class="crumbs"><a href="../index.html">Home</a> &rsaquo; <a href="../guides/index.html">Guides</a> &rsaquo; AI voice recorder</p>
 
     <h1 class="page-title">An AI voice recorder &mdash; no extra hardware</h1>
-    <p class="page-meta">Guides &middot; Updated June 2026</p>
+    <p class="page-meta">Guides &middot; Updated July 2026</p>
 
     <p class="lede">
       Most &ldquo;AI voice recorders&rdquo; are gadgets &mdash; a pendant or a clip you buy, charge,
@@ -121,13 +127,36 @@
       and AI summary on top.
     </p>
 
+    <h2>Why speaker labels matter</h2>
+    <p>
+      Most recordings worth transcribing involve more than one voice &mdash; a call, an interview, a
+      quick conversation you want to remember accurately. A flat transcript of that turns into a wall of
+      text you cannot follow. Compare a raw transcript of a two-person call&hellip;
+    </p>
+    <p class="sample">
+      so are we still on for Thursday yes but can we push it an hour sure that works I will send the new invite
+    </p>
+    <p>&hellip;with the same audio, speaker-labeled:</p>
+    <p class="sample">
+      <span class="spk">Maria:</span> So are we still on for Thursday?<br>
+      <span class="spk">James:</span> Yes, but can we push it an hour?<br>
+      <span class="spk">Maria:</span> Sure, that works. I will send the new invite.
+    </p>
+    <p>
+      Attesta separates the distinct voices in a recording automatically and labels them Speaker 1,
+      Speaker 2, and so on &mdash; no setup, no separate mic per person. That labeling is also what lets
+      the action items and decisions in your summary come out attributed, instead of a block of text you
+      have to re-listen to just to work out who said what.
+    </p>
+
     <h2>What you get from every recording</h2>
     <ul>
       <li><strong>A speaker-labeled transcript</strong> &mdash; see who said what.</li>
       <li><strong>A summary</strong> of the conversation in a few lines.</li>
       <li><strong>Action items and decisions</strong>, pulled out automatically.</li>
       <li><strong>Key topics, quotes, and people mentioned</strong> for fast recall.</li>
-      <li><strong>Sync across iPhone, iPad, and Mac</strong>, so a morning recording is on your laptop by the afternoon.</li>
+      <li><strong>Pause and resume</strong> mid-recording &mdash; an interruption does not force you to start over.</li>
+      <li><strong>Sync across every device you sign into</strong>, so a recording from your phone is there the next time you check.</li>
     </ul>
 
     <h2>Private by design</h2>
@@ -147,7 +176,7 @@
     </p>
 
     <div class="cta-box">
-      <p>Turn your iPhone into an AI voice recorder &mdash; transcript, summary, and action items from a single tap.</p>
+      <p>Turn your iPhone into an AI voice recorder &mdash; speaker-labeled transcript, summary, and action items from a single tap.</p>
       <a class="appstore-btn" href="https://apps.apple.com/us/app/attesta/id6771519623" aria-label="Download Attesta on the App Store">
         <svg class="appstore-btn__apple" viewBox="0 0 384 512" width="28" height="28" aria-hidden="true">
           <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
@@ -170,11 +199,17 @@
     <h3>Does an AI voice recorder transcribe automatically?</h3>
     <p>Yes &mdash; after you stop, Attesta transcribes the audio and generates a speaker-labeled transcript plus a summary, key topics, action items, and people mentioned.</p>
 
+    <h3>Can an AI voice recorder tell different speakers apart?</h3>
+    <p>Yes &mdash; Attesta labels distinct voices as Speaker 1, Speaker 2, and so on, so a conversation between two or more people reads as a conversation instead of one unbroken block of text.</p>
+
+    <h3>How long can one recording be?</h3>
+    <p>A single recording auto-stops at 60 minutes. Pause and resume stay within that same recording, so a call that gets interrupted or a short break does not cost you your place or start a new file.</p>
+
     <h2>Related guides</h2>
     <ul class="related">
+      <li><a href="../speaker-labels-transcription/index.html">Speaker labels in transcription, explained</a></li>
       <li><a href="../how-to-transcribe-an-interview/index.html">How to transcribe an interview</a></li>
       <li><a href="../otter-alternative/index.html">The best Otter.ai alternatives in 2026</a></li>
-      <li><a href="../attesta-vs-otter/index.html">Attesta vs Otter — a head-to-head</a></li>
     </ul>
 
     <footer class="site-footer">
