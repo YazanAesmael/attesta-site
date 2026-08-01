@@ -42,6 +42,9 @@
     ol.steps li { margin-bottom: 12px; }
     .sample { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; font-size: 15px; line-height: 1.7; }
     .sample .spk { color: var(--text); font-weight: 600; }
+    .minutes-sample { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px 4px; font-size: 15px; line-height: 1.6; }
+    .minutes-sample h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin: 0 0 8px; }
+    .minutes-sample ul { margin: 0 0 20px; }
   </style>
 
   <script type="application/ld+json">
@@ -52,6 +55,19 @@
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://attesta.cc/" },
       { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://attesta.cc/guides/" },
       { "@type": "ListItem", "position": 3, "name": "Record a meeting on iPhone", "item": "https://attesta.cc/record-a-meeting-on-iphone/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to record an in-person meeting on iPhone and get the minutes",
+    "step": [
+      { "@type": "HowToStep", "name": "Tap record", "text": "Tap record as the meeting starts. An audible tone plays so everyone knows." },
+      { "@type": "HowToStep", "name": "Position the phone", "text": "Put the phone in the middle of the table, mic clear of papers and laptops." },
+      { "@type": "HowToStep", "name": "Tap stop", "text": "Tap stop when you are done." },
+      { "@type": "HowToStep", "name": "Get the minutes", "text": "Get the minutes — a speaker-labeled transcript plus a summary, the decisions, and the action items." }
     ]
   }
   </script>
@@ -88,7 +104,7 @@
     <p class="crumbs"><a href="../index.html">Home</a> &rsaquo; <a href="../guides/index.html">Guides</a> &rsaquo; Record a meeting on iPhone</p>
 
     <h1 class="page-title">How to record a meeting on your iPhone</h1>
-    <p class="page-meta">Guides &middot; Updated July 2026</p>
+    <p class="page-meta">Guides &middot; Updated August 2026</p>
 
     <p class="lede">
       The decisions made in a meeting tend to evaporate the moment everyone walks out. Recording fixes
@@ -141,6 +157,32 @@
       participant, while a room with three or four people around a single phone is a tougher diarization
       problem. Attesta separates the voices from that one in-room recording, so the minutes come out
       attributed without a separate mic for everyone.
+    </p>
+
+    <h2>What the minutes actually look like</h2>
+    <p>
+      Continuing that same three-person planning call, here is roughly what Attesta's minutes turn it
+      into &mdash; a short narrative summary, plus whichever structured sections apply to the
+      conversation:
+    </p>
+    <div class="minutes-sample">
+      <h4>Summary</h4>
+      <p>Priya, Diego, and Sam checked in on the deck timeline and confirmed next steps for legal review and budget sign-off.</p>
+      <h4>Decisions</h4>
+      <ul>
+        <li>Deck ships Wednesday.</li>
+      </ul>
+      <h4>Action items</h4>
+      <ul>
+        <li>Priya &mdash; Finish the deck (due Wednesday)</li>
+        <li>Priya &mdash; Loop in legal before it goes out</li>
+        <li>Sam &mdash; Confirm the budget with finance (this afternoon)</li>
+      </ul>
+    </div>
+    <p>
+      That's the shape of it: a summary plus the sections that actually apply &mdash; decisions, action
+      items with an owner, key topics, and the people involved &mdash; not just a longer wall of text.
+      Anyone who missed the meeting can read that in fifteen seconds instead of scrubbing through audio.
     </p>
 
     <h2>What if the meeting runs long?</h2>
